@@ -35,9 +35,10 @@ html {
 }
 
 body {
+	display: flex;
 	max-width: 1366px;
 	background-color: var(--bg-color-main);
-	box-shadow: 1px 1px 5px 1px var(--accent);
+	box-shadow: 1px 1px 5px 1px var(--contrast-light);
 	width: 100%;
-	height: 1300px;
+	height: 95lvh;
 }
