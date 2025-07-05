@@ -43,4 +43,94 @@
 .nav-parent-wrapper {
 	width: 92%;
 	height: 100%;
+	padding: 5px;
+}
+
+.nav-parent-wrapper > div {
+	height: 100%;
+	width: 50%;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* ++Hero Section Container */
+
+.hero-intro-container {
+	width: 95%;
+	height: 400px;
+	color: var(--font-color-main);
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.hero-intro-container > p:nth-child(1) {
+	font-size: 5rem;
+	width: 100%;
+	text-align: center;
+	margin-bottom: -20px;
+}
+
+.hero-intro-container > p:nth-child(2) {
+	font-size: 2rem;
+	text-align: center;
+}
+
+.hero-socials-container {
+	width: 95%;
+	height: 100px;
+	column-gap: 30px;
+	justify-content: space-around;
+}
+
+.hero-socials-container span {
+	display: flex;
+	justify-content: center;
+	height: 90%;
+	width: 20%;
+	align-items: center;
+}
+
+.hero-socials-container > span > .fa-brands {
+	color: var(--font-color-main);
+	font-size: 2.5rem;
+	padding: 5px;
+	border: 2px solid var(--contrast-dark);
+	border-radius: 50%;
+	background-color: var(--contrast-dark);
+	text-align: center;
+	width: 40px;
+	height: 40px;
+}
+
+.hero-socials-container > span > .fa-brands:hover {
+	transform: scale(1.2);
+	border: 1px solid var(--contrast-dark);
+	color: var(--accent);
+	border: 1px solid var(--accent);
+}
+
+/* ++Home Profile Picture Container */
+.profile-pic-wrapper {
+	height: 400px;
+	width: 400px;
+	box-shadow: 2px 2px 20px 5px var(--accent);
+	border-radius: 50%;
+	border: 5px ridge var(--contrast-dark);
+}
+
+.profile-pic-wrapper img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.brand-name {
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	align-content: center;
+	color: var(--font-color-main);
+	font-size: 5rem;
+	text-shadow: 4px 4px 4px var(--accent);
 }

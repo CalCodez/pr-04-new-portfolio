@@ -41,4 +41,5 @@ body {
 	box-shadow: 1px 1px 5px 1px var(--contrast-light);
 	width: 100%;
 	height: 95lvh;
+	box-sizing: content-box;
 }
