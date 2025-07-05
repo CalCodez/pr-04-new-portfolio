@@ -3,6 +3,7 @@
 	width: 8%;
 	flex-direction: column;
 	justify-content: space-around;
+	border-right: 5px outset var(--accent);
 }
 
 .nav-side-bar li {
@@ -29,7 +30,6 @@
 	display: flex;
 	place-content: center;
 	place-items: center;
-	/*border: 1px solid var(--contrast-light);*/
 	border-radius: 50%;
 	background-color: var(--contrast-dark);
 	color: var(--font-color-main);
