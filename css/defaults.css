@@ -52,9 +52,17 @@ body {
 	color: var(--accent);
 	z-index: 3;
 	cursor: pointer;
+	display: none;
 }
 
 .mobile-menu {
+	height: 0;
+	width: 100%;
+	position: absolute;
+}
+
+.mobile-menu-active {
+	display: flex;
 	width: 320px;
 	height: 320px;
 	border: 2px solid var(--contrast-dark);
@@ -74,20 +82,19 @@ body {
 	z-index: 1;
 	padding: 8px;
 
-	transition: all ease 5s;
-	display: none;
+	transition: height ease-in-out 0.5s;
 }
 
 .mobile-nav {
-	width: 80%;
-	height: 80%;
-	/*outline: 1px solid white;*/
+	width: 200px;
+	height: 90%;
 	flex-direction: column;
 	justify-content: space-around;
+	display: none;
 }
 
 .mobile-nav-li {
-	width: 100%;
+	width: 200px;
 	height: 15%;
 	color: var(--font-color-main);
 	border: 2px solid var(--contrast-dark);
@@ -112,4 +119,5 @@ body {
 		var(--contrast-dark),
 		var(--accent)
 	);
+	box-shadow: none;
 }

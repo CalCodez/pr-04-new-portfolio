@@ -107,6 +107,7 @@
 	border: 1px solid var(--contrast-dark);
 	color: var(--accent);
 	border: 1px solid var(--accent);
+	cursor: pointer;
 }
 
 /* ++Home Profile Picture Container */

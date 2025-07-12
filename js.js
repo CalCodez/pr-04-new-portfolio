@@ -19,13 +19,19 @@ const flexInactive = 'flex-inactive';
 
 const mobileToggler = getById('mobile-menu-toggler');
 const mobileMenu = getById('mobile-menu');
+const activeMenu = 'mobile-menu-active';
+const mobileNav = select('.mobile-nav');
 
 const toggleMobileMenu = (toggler, menu) => {
 	toggler.addEventListener(click, () => {
-		if (!menu.classList.contains(flexActive)) {
-			toggleClass(menu, flexActive);
+		if (!menu.classList.contains(activeMenu)) {
+			toggleClass(menu, activeMenu);
+			setTimeout(() => {
+				toggleClass(mobileNav, flexActive);
+			}, 300);
 		} else {
-			toggleClass(menu, flexActive);
+			toggleClass(menu, activeMenu);
+			toggleClass(mobileNav, flexActive);
 		}
 	});
 };
