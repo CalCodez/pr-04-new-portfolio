@@ -14,3 +14,20 @@ const click = 'click';
 const keyup = 'keyup';
 const flexActive = 'flex-active';
 const flexInactive = 'flex-inactive';
+
+//Toggle Mobile Menu Vars and Function
+
+const mobileToggler = getById('mobile-menu-toggler');
+const mobileMenu = getById('mobile-menu');
+
+const toggleMobileMenu = (toggler, menu) => {
+	toggler.addEventListener(click, () => {
+		if (!menu.classList.contains(flexActive)) {
+			toggleClass(menu, flexActive);
+		} else {
+			toggleClass(menu, flexActive);
+		}
+	});
+};
+
+toggleMobileMenu(mobileToggler, mobileMenu);

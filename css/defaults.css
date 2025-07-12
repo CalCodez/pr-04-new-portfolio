@@ -42,4 +42,74 @@ body {
 	width: 100%;
 	height: 95lvh;
 	box-sizing: content-box;
+	position: relative;
+}
+#mobile-menu-toggler {
+	font-size: 30px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	color: var(--accent);
+	z-index: 3;
+	cursor: pointer;
+}
+
+.mobile-menu {
+	width: 320px;
+	height: 320px;
+	border: 2px solid var(--contrast-dark);
+	position: absolute;
+	background: linear-gradient(
+		180deg,
+		var(--black),
+		var(--black),
+		var(--black),
+		var(--black),
+		var(--black),
+		var(--black),
+		var(--black),
+		var(--contrast-dark),
+		var(--accent)
+	);
+	z-index: 1;
+	padding: 8px;
+
+	transition: all ease 5s;
+	display: none;
+}
+
+.mobile-nav {
+	width: 80%;
+	height: 80%;
+	/*outline: 1px solid white;*/
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.mobile-nav-li {
+	width: 100%;
+	height: 15%;
+	color: var(--font-color-main);
+	border: 2px solid var(--contrast-dark);
+	display: flex;
+	align-items: center;
+	font-size: 1.5rem;
+	justify-content: center;
+	column-gap: 10px;
+	border-radius: 20px;
+	box-shadow: 2px 2px 6px 1px var(--accent);
+}
+
+.mobile-nav-li:hover {
+	transform: scale(1.08);
+	background: linear-gradient(
+		90deg,
+		var(--accent),
+		var(--contrast-dark),
+		var(--black),
+		var(--black),
+		var(--black),
+		var(--contrast-dark),
+		var(--accent)
+	);
 }

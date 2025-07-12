@@ -134,3 +134,11 @@
 	font-size: 5rem;
 	text-shadow: 4px 4px 4px var(--accent);
 }
+
+.flex-active {
+	display: flex;
+}
+
+.flex-inactive {
+	display: none;
+}
