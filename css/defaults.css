@@ -44,6 +44,14 @@ body {
 	box-sizing: content-box;
 	position: relative;
 }
+.parent-wrapper {
+	display: flex;
+	width: 92%;
+	height: 100%;
+	padding: 5px;
+	position: relative;
+}
+
 #mobile-menu-toggler {
 	font-size: 30px;
 	position: absolute;

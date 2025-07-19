@@ -34,6 +34,30 @@ const toggleMobileMenu = (toggler, menu) => {
 			toggleClass(mobileNav, flexActive);
 		}
 	});
+
+	window.addEventListener(keyup, () => {
+		if (event.key === 'Escape' && menu.classList.contains(activeMenu)) {
+			toggleClass(menu, activeMenu);
+			toggleClass(mobileNav, flexActive);
+		}
+	});
 };
 
 toggleMobileMenu(mobileToggler, mobileMenu);
+
+function triggerProjectInfoContainer() {
+	const projectInfoContainer = getById('project-info-container');
+	const getProjectInfoButtons = selectAll('.get-project-info-button');
+	const activeInfoMenu = 'project-info-container-active';
+
+	for (let togglers of getProjectInfoButtons) {
+		togglers.addEventListener(click, () => {
+			if (!projectInfoContainer.classList.contains(activeInfoMenu)) {
+				toggleClass(projectInfoContainer, activeInfoMenu);
+			} else {
+				toggleClass(projectInfoContainer, activeInfoMenu);
+			}
+		});
+	}
+}
+triggerProjectInfoContainer();
