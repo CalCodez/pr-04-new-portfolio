@@ -201,7 +201,11 @@
 	);
 
 	border-radius: 5px;
-	box-shadow: 1px 1px 10px 1px var(--contrast-light);
+	box-shadow: 1px 1px 5px 3px var(--contrast-light);
+}
+
+.project-card:hover {
+	transform: scale(1.05);
 }
 
 .project-img-container {

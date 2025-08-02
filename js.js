@@ -59,5 +59,17 @@ function triggerProjectInfoContainer() {
 			}
 		});
 	}
+
+	projectInfoContainer.addEventListener(click, () => {
+		if (projectInfoContainer.classList.contains(activeInfoMenu)) {
+			toggleClass(projectInfoContainer, activeInfoMenu);
+		}
+	});
+
+	window.addEventListener(keyup, () => {
+		if (projectInfoContainer.classList.contains(activeInfoMenu)) {
+			toggleClass(projectInfoContainer, activeInfoMenu);
+		}
+	});
 }
 triggerProjectInfoContainer();
