@@ -16,7 +16,6 @@ const flexActive = 'flex-active';
 const flexInactive = 'flex-inactive';
 
 //Toggle Mobile Menu Vars and Function
-
 const mobileToggler = getById('mobile-menu-toggler');
 const mobileMenu = getById('mobile-menu');
 const activeMenu = 'mobile-menu-active';
@@ -42,9 +41,92 @@ const toggleMobileMenu = (toggler, menu) => {
 		}
 	});
 };
-
 toggleMobileMenu(mobileToggler, mobileMenu);
 
+//Toggle Parent Containers Var and Function
+
+const mainNavToggles = selectAll('.nav-li');
+const [homeToggle, aboutToggle, skillsToggle, projectsToggle, contactToggle] = mainNavToggles;
+const mobileNavToggles = selectAll('.mobile-nav-li');
+const [
+	homeToggleMobile,
+	aboutToggleMobile,
+	skillsToggleMobile,
+	ProjectsToggleMobile,
+	contactToggleMobile,
+] = mobileNavToggles;
+
+const homeParent = getById('home-parent-wrapper');
+const aboutParent = getById('about-parent-wrapper');
+const skillsParent = getById('skills-parent-wrapper');
+const projectsParent = getById('projects-parent-wrapper');
+const contactParent = getById('contact-parent-wrapper');
+
+const toggleParentContainers = (
+	toggler,
+	homeCont = homeParent,
+	aboutCont = aboutParent,
+	skillsCont = skillsParent,
+	projectsCont = projectsParent,
+	ContactCont = contactParent
+) => {
+	toggler.addEventListener(click, () => {
+		if (
+			!aboutCont.classList.contains(flexActive) &&
+			homeCont.classList.contains(flexActive) &&
+			!skillsCont.classList.contains(flexActive) &&
+			!projectsCont.classList.contains(flexActive) &&
+			!ContactCont.classList.contains(flexActive)
+		) {
+			toggleClass(aboutCont, flexActive);
+			toggleClass(homeCont, flexActive);
+		} else if (
+			!skillsCont.classList.contains(flexActive) &&
+			!projectsCont.classList.contains(flexActive) &&
+			!ContactCont.classList.contains(flexActive) &&
+			aboutCont.classList.contains(flexActive) &&
+			!homeCont.classList.contains(flexActive)
+		) {
+			toggleClass(aboutCont, flexActive);
+			toggleClass(skillsCont, flexActive);
+		} else if (
+			!projectsCont.classList.contains(flexActive) &&
+			!ContactCont.classList.contains(flexActive) &&
+			!aboutCont.classList.contains(flexActive) &&
+			!homeCont.classList.contains(flexActive) &&
+			skillsCont.classList.contains(flexActive)
+		) {
+			toggleClass(projectsCont, flexActive);
+			toggleClass(skillsCont, flexActive);
+		} else if (
+			!ContactCont.classList.contains(flexActive) &&
+			!aboutCont.classList.contains(flexActive) &&
+			!homeCont.classList.contains(flexActive) &&
+			projectsCont.classList.contains(flexActive) &&
+			!skillsCont.classList.contains(flexActive)
+		) {
+			toggleClass(ContactCont, flexActive);
+			toggleClass(projectsCont, flexActive);
+		} else if (
+			!homeCont.classList.contains(flexActive) &&
+			ContactCont.classList.contains(flexActive) &&
+			!aboutCont.classList.contains(flexActive) &&
+			!skillsCont.classList.contains(flexActive) &&
+			!projectsCont.classList.contains(flexActive)
+		) {
+			toggleClass(ContactCont, flexActive);
+			toggleClass(homeCont, flexActive);
+		}
+	});
+};
+
+toggleParentContainers(homeToggle);
+toggleParentContainers(aboutToggle);
+toggleParentContainers(skillsToggle);
+toggleParentContainers(projectsToggle);
+toggleParentContainers(contactToggle);
+
+//Project Info Container Vars and Functions
 function triggerProjectInfoContainer() {
 	const projectInfoContainer = getById('project-info-container');
 	const getProjectInfoButtons = selectAll('.get-project-info-button');

@@ -6,7 +6,7 @@
 	border-right: 5px outset var(--accent);
 }
 
-.nav-side-bar li {
+.nav-li {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -20,6 +20,7 @@
 	font-size: 60px;
 	text-shadow: 2px 2px 2px var(--accent);
 	font-weight: 600;
+	color: var(--font-color-main);
 }
 
 .nav-side-bar li > .fa-solid {
@@ -136,12 +137,23 @@
 	text-shadow: 4px 4px 4px var(--accent);
 }
 
+/* **About Parent Wrapper */
+.about-parent-wrapper {
+	display: none;
+}
+
+/* **Skills Parent Wrapper */
+.skills-parent-wrapper {
+	display: none;
+}
+
 /* **Projects */
 
 .project-parent-wrapper {
 	outline: var(--olR);
 	flex-direction: column;
 	overflow: scroll;
+	display: none;
 }
 
 .project-header-container {
@@ -264,6 +276,12 @@
 	background-color: var(--contrast-dark);
 }
 
+/* **Contact Parent Wrapper */
+.contact-parent-wrapper {
+	display: none;
+}
+
+/* ^^Default FLex */
 .flex-active {
 	display: flex;
 }
