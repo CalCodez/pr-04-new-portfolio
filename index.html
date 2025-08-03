@@ -30,11 +30,11 @@
 
 		<div class="container nav-side-bar">
 			<li class="temp-logo">C</li>
-			<li class="nav-li"><i class="fa-solid fa-home"></i> HOME</li>
-			<li class="nav-li"><i class="fa-solid fa-info"></i>ABOUT</li>
-			<li class="nav-li"><i class="fa-solid fa-code"></i>SKILLS</li>
-			<li class="nav-li"><i class="fa-solid fa-project-diagram"></i> PROJECTS</li>
-			<li class="nav-li"><i class="fa-solid fa-envelope"></i> CONTACT</li>
+			<li class="nav-li"><i class="fa-solid fa-home nav-icons color-class"></i> HOME</li>
+			<li class="nav-li"><i class="fa-solid fa-info nav-icons"></i>ABOUT</li>
+			<li class="nav-li"><i class="fa-solid fa-code nav-icons"></i>SKILLS</li>
+			<li class="nav-li"><i class="fa-solid fa-project-diagram nav-icons"></i> PROJECTS</li>
+			<li class="nav-li"><i class="fa-solid fa-envelope nav-icons"></i> CONTACT</li>
 		</div>
 
 		<div id="home-parent-wrapper" class="home-parent-wrapper parent-wrapper flex-active">
@@ -59,14 +59,22 @@
 			</div>
 		</div>
 
-		<div id="about-parent-wrapper" class="about-parent-wrapper parent-wrapper"></div>
-		<div id="skills-parent-wrapper" class="skills-parent-wrapper parent-wrapper"></div>
+		<div id="about-parent-wrapper" class="about-parent-wrapper parent-wrapper">
+			<div class="parent-header-container">
+				<header class="parent-header-text">About Me</header>
+			</div>
+		</div>
+		<div id="skills-parent-wrapper" class="skills-parent-wrapper parent-wrapper">
+			<div class="parent-header-container">
+				<header class="parent-header-text">Skills</header>
+			</div>
+		</div>
 
 		<div id="projects-parent-wrapper" class="project-parent-wrapper parent-wrapper">
 			<div id="project-info-container" class="container project-info-container"></div>
 
-			<div class="project-header-container">
-				<header class="project-header-text">Projects</header>
+			<div class="parent-header-container">
+				<header class="parent-header-text">Projects</header>
 			</div>
 			<div class="container project-cards-container">
 				<div class="container project-card">
@@ -144,7 +152,11 @@
 			</div>
 		</div>
 
-		<div id="contact-parent-wrapper" class="contact-parent-wrapper parent-wrapper"></div>
+		<div id="contact-parent-wrapper" class="contact-parent-wrapper parent-wrapper">
+			<div class="parent-header-container">
+				<header class="parent-header-text">Contact</header>
+			</div>
+		</div>
 
 		<script src="./js.js"></script>
 	</body>

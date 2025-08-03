@@ -54,6 +54,9 @@ toggleMobileMenu(mobileToggler, mobileMenu);
 
 const mainNavToggles = selectAll('.nav-li');
 const [homeToggle, aboutToggle, skillsToggle, projectsToggle, contactToggle] = mainNavToggles;
+const navIcons = selectAll('.nav-icons');
+const [homeIcon, aboutIcon, skillsIcon, projectsIcon, contactIcon] = navIcons;
+
 const mobileNavToggles = selectAll('.mobile-nav-li');
 const [
 	homeToggleMobile,
@@ -114,6 +117,7 @@ const toggleParentContainers = (arr, targetContainer, cont1, cont2, cont3, cont4
 			) {
 				toggleClass(cont4, flexActive);
 				toggleClass(targetContainer, flexActive);
+				toggleClass(toggler, colorOn);
 			}
 		});
 	}
@@ -125,7 +129,8 @@ toggleParentContainers(
 	homeParent,
 	skillsParent,
 	projectsParent,
-	contactParent
+	contactParent,
+	aboutIcon
 );
 toggleParentContainers(
 	toggleSkills,

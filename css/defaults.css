@@ -52,6 +52,33 @@ body {
 	box-sizing: content-box;
 }
 
+.parent-header-container {
+	width: 100%;
+	height: 80px;
+	text-align: center;
+	align-content: center;
+	border: 2px outset var(--contrast-dark);
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.parent-header-text {
+	color: var(--font-color-main);
+	height: 100%;
+	font-size: 3rem;
+	font-weight: 600;
+	text-shadow: 2px 2px 1px var(--accent);
+	align-content: center;
+	background: linear-gradient(
+		45deg,
+		var(--accent),
+		var(--contrast-dark),
+		var(--contrast-dark),
+		var(--contrast-dark),
+		var(--accent)
+	);
+}
+
 #mobile-menu-toggler {
 	font-size: 30px;
 	position: absolute;
