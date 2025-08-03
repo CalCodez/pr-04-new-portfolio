@@ -27,6 +27,30 @@
 	}
 }
 
+@media (max-width: 467px) {
+	body {
+		place-content: center;
+	}
+	.home-parent-wrapper {
+		flex-direction: column-reverse;
+		height: auto;
+	}
+
+	.home-parent-wrapper > div {
+		width: 100%;
+		height: 50%;
+	}
+
+	.profile-pic-wrapper {
+		height: 280px;
+		width: 280px;
+	}
+
+	.brand-name {
+		margin-bottom: -20px;
+	}
+}
+
 @media (max-width: 320px) {
 	html {
 		padding: 0;
@@ -60,9 +84,11 @@
 	.profile-pic-wrapper {
 		height: 250px;
 		width: 250px;
+		margin-bottom: 0;
 	}
 
 	.brand-name {
 		font-size: 3rem;
+		margin-bottom: 0;
 	}
 }

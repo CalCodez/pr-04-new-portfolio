@@ -117,7 +117,6 @@ const toggleParentContainers = (arr, targetContainer, cont1, cont2, cont3, cont4
 			) {
 				toggleClass(cont4, flexActive);
 				toggleClass(targetContainer, flexActive);
-				toggleClass(toggler, colorOn);
 			}
 		});
 	}

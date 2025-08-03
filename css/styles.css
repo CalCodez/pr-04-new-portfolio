@@ -43,7 +43,6 @@
 }
 
 /* **Home  */
-
 .home-parent-wrapper {
 	display: none;
 }
@@ -151,7 +150,6 @@
 /* **Projects */
 
 .project-parent-wrapper {
-	outline: var(--olR);
 	flex-direction: column;
 	overflow: scroll;
 	display: none;
