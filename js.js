@@ -34,6 +34,13 @@ const toggleMobileMenu = (toggler, menu) => {
 		}
 	});
 
+	menu.addEventListener(click, () => {
+		if (menu.classList.contains(activeMenu)) {
+			toggleClass(menu, activeMenu);
+			toggleClass(mobileNav, flexActive);
+		}
+	});
+
 	window.addEventListener(keyup, () => {
 		if (event.key === 'Escape' && menu.classList.contains(activeMenu)) {
 			toggleClass(menu, activeMenu);
@@ -56,75 +63,102 @@ const [
 	contactToggleMobile,
 ] = mobileNavToggles;
 
+const toggleHome = [mainNavToggles[0], mobileNavToggles[0]];
+const toggleAbout = [mainNavToggles[1], mobileNavToggles[1]];
+const toggleSkills = [mainNavToggles[2], mobileNavToggles[2]];
+const toggleProjects = [mainNavToggles[3], mobileNavToggles[3]];
+const toggleContact = [mainNavToggles[4], mobileNavToggles[4]];
+
 const homeParent = getById('home-parent-wrapper');
 const aboutParent = getById('about-parent-wrapper');
 const skillsParent = getById('skills-parent-wrapper');
 const projectsParent = getById('projects-parent-wrapper');
 const contactParent = getById('contact-parent-wrapper');
 
-const toggleParentContainers = (
-	toggler,
-	homeCont = homeParent,
-	aboutCont = aboutParent,
-	skillsCont = skillsParent,
-	projectsCont = projectsParent,
-	ContactCont = contactParent
-) => {
-	toggler.addEventListener(click, () => {
-		if (
-			!aboutCont.classList.contains(flexActive) &&
-			homeCont.classList.contains(flexActive) &&
-			!skillsCont.classList.contains(flexActive) &&
-			!projectsCont.classList.contains(flexActive) &&
-			!ContactCont.classList.contains(flexActive)
-		) {
-			toggleClass(aboutCont, flexActive);
-			toggleClass(homeCont, flexActive);
-		} else if (
-			!skillsCont.classList.contains(flexActive) &&
-			!projectsCont.classList.contains(flexActive) &&
-			!ContactCont.classList.contains(flexActive) &&
-			aboutCont.classList.contains(flexActive) &&
-			!homeCont.classList.contains(flexActive)
-		) {
-			toggleClass(aboutCont, flexActive);
-			toggleClass(skillsCont, flexActive);
-		} else if (
-			!projectsCont.classList.contains(flexActive) &&
-			!ContactCont.classList.contains(flexActive) &&
-			!aboutCont.classList.contains(flexActive) &&
-			!homeCont.classList.contains(flexActive) &&
-			skillsCont.classList.contains(flexActive)
-		) {
-			toggleClass(projectsCont, flexActive);
-			toggleClass(skillsCont, flexActive);
-		} else if (
-			!ContactCont.classList.contains(flexActive) &&
-			!aboutCont.classList.contains(flexActive) &&
-			!homeCont.classList.contains(flexActive) &&
-			projectsCont.classList.contains(flexActive) &&
-			!skillsCont.classList.contains(flexActive)
-		) {
-			toggleClass(ContactCont, flexActive);
-			toggleClass(projectsCont, flexActive);
-		} else if (
-			!homeCont.classList.contains(flexActive) &&
-			ContactCont.classList.contains(flexActive) &&
-			!aboutCont.classList.contains(flexActive) &&
-			!skillsCont.classList.contains(flexActive) &&
-			!projectsCont.classList.contains(flexActive)
-		) {
-			toggleClass(ContactCont, flexActive);
-			toggleClass(homeCont, flexActive);
-		}
-	});
+const toggleParentContainers = (arr, targetContainer, cont1, cont2, cont3, cont4) => {
+	for (let toggler of arr) {
+		toggler.addEventListener(click, () => {
+			if (
+				!targetContainer.classList.contains(flexActive) &&
+				cont1.classList.contains(flexActive) &&
+				!cont2.classList.contains(flexActive) &&
+				!cont3.classList.contains(flexActive) &&
+				!cont4.classList.contains(flexActive)
+			) {
+				toggleClass(cont1, flexActive);
+				toggleClass(targetContainer, flexActive);
+			} else if (
+				!targetContainer.classList.contains(flexActive) &&
+				!cont1.classList.contains(flexActive) &&
+				cont2.classList.contains(flexActive) &&
+				!cont3.classList.contains(flexActive) &&
+				!cont4.classList.contains(flexActive)
+			) {
+				toggleClass(cont2, flexActive);
+				toggleClass(targetContainer, flexActive);
+			} else if (
+				!targetContainer.classList.contains(flexActive) &&
+				!cont1.classList.contains(flexActive) &&
+				!cont2.classList.contains(flexActive) &&
+				cont3.classList.contains(flexActive) &&
+				!cont4.classList.contains(flexActive)
+			) {
+				toggleClass(cont3, flexActive);
+				toggleClass(targetContainer, flexActive);
+			} else if (
+				!targetContainer.classList.contains(flexActive) &&
+				!cont1.classList.contains(flexActive) &&
+				!cont2.classList.contains(flexActive) &&
+				!cont3.classList.contains(flexActive) &&
+				cont4.classList.contains(flexActive)
+			) {
+				toggleClass(cont4, flexActive);
+				toggleClass(targetContainer, flexActive);
+			}
+		});
+	}
 };
 
-toggleParentContainers(homeToggle);
-toggleParentContainers(aboutToggle);
-toggleParentContainers(skillsToggle);
-toggleParentContainers(projectsToggle);
-toggleParentContainers(contactToggle);
+toggleParentContainers(
+	toggleAbout,
+	aboutParent,
+	homeParent,
+	skillsParent,
+	projectsParent,
+	contactParent
+);
+toggleParentContainers(
+	toggleSkills,
+	skillsParent,
+	projectsParent,
+	contactParent,
+	homeParent,
+	aboutParent
+);
+toggleParentContainers(
+	toggleProjects,
+	projectsParent,
+	contactParent,
+	homeParent,
+	aboutParent,
+	skillsParent
+);
+toggleParentContainers(
+	toggleContact,
+	contactParent,
+	homeParent,
+	aboutParent,
+	skillsParent,
+	projectsParent
+);
+toggleParentContainers(
+	toggleHome,
+	homeParent,
+	aboutParent,
+	skillsParent,
+	projectsParent,
+	contactParent
+);
 
 //Project Info Container Vars and Functions
 function triggerProjectInfoContainer() {
