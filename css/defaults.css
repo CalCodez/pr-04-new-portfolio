@@ -70,7 +70,8 @@ body {
 		45deg,
 		var(--accent),
 		var(--contrast-dark),
-		var(--contrast-dark),
+		var(--bg-color-main),
+		var(--bg-color-main),
 		var(--contrast-dark),
 		var(--accent)
 	);

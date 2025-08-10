@@ -109,10 +109,6 @@
 		margin-bottom: 0;
 	}
 
-	.skills-parent-wrapper {
-		outline: var(--olB);
-	}
-
 	.skill-container {
 		width: 250px;
 	}

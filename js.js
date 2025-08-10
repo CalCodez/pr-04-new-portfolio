@@ -122,49 +122,51 @@ const toggleParentContainers = (arr, targetContainer, cont1, cont2, cont3, cont4
 	}
 };
 
-//toggleParentContainers(
-//	toggleAbout,
-//	aboutParent,
-//	homeParent,
-//	skillsParent,
-//	projectsParent,
-//	contactParent,
-//	aboutIcon
-//);
-//toggleParentContainers(
-//	toggleSkills,
-//	skillsParent,
-//	projectsParent,
-//	contactParent,
-//	homeParent,
-//	aboutParent
-//);
-//toggleParentContainers(
-//	toggleProjects,
-//	projectsParent,
-//	contactParent,
-//	homeParent,
-//	aboutParent,
-//	skillsParent
-//);
-//toggleParentContainers(
-//	toggleContact,
-//	contactParent,
-//	homeParent,
-//	aboutParent,
-//	skillsParent,
-//	projectsParent
-//);
-//toggleParentContainers(
-//	toggleHome,
-//	homeParent,
-//	aboutParent,
-//	skillsParent,
-//	projectsParent,
-//	contactParent
-//);
+toggleParentContainers(
+	toggleAbout,
+	aboutParent,
+	homeParent,
+	skillsParent,
+	projectsParent,
+	contactParent,
+	aboutIcon
+);
+toggleParentContainers(
+	toggleSkills,
+	skillsParent,
+	projectsParent,
+	contactParent,
+	homeParent,
+	aboutParent
+);
+toggleParentContainers(
+	toggleProjects,
+	projectsParent,
+	contactParent,
+	homeParent,
+	aboutParent,
+	skillsParent
+);
+toggleParentContainers(
+	toggleContact,
+	contactParent,
+	homeParent,
+	aboutParent,
+	skillsParent,
+	projectsParent
+);
+toggleParentContainers(
+	toggleHome,
+	homeParent,
+	aboutParent,
+	skillsParent,
+	projectsParent,
+	contactParent
+);
 
 //Project Info Container Vars and Functions
+
+//~~NOTE: Deleting This Function don't need for new project card hover detail Idea
 function triggerProjectInfoContainer() {
 	const projectInfoContainer = getById('project-info-container');
 	const getProjectInfoButtons = selectAll('.get-project-info-button');
@@ -197,28 +199,32 @@ triggerProjectInfoContainer();
 //Skills details Var and Function
 
 const skillDetailsContainer = selectAll('.skill-details-container');
-
-const [htmlDetails, cssDetails, gitDetails, jsDetails] = skillDetailsContainer;
-
 const skillButtons = selectAll('.skill-button');
-const [htmlSkillBtn, cssSkillBtn, gitSkillBtn, jsSkillBtn] = skillButtons;
 
-const toggleSkillDetails = (btn, container) => {
-	const closeContainer = 'Close';
-	const viewDetails = 'View';
+const skillDetails = {
+	html: { button: skillButtons[0], container: skillDetailsContainer[0] },
+	css: { button: skillButtons[1], container: skillDetailsContainer[1] },
+	git: { button: skillButtons[2], container: skillDetailsContainer[2] },
+	js: { button: skillButtons[3], container: skillDetailsContainer[3] },
+};
+const { html, css, git, js } = skillDetails;
 
-	btn.addEventListener(click, () => {
-		if (!container.classList.contains(flexActive)) {
-			toggleClass(container, flexActive);
-			textContent(btn, closeContainer);
+const toggleSkillDetails = (obj) => {
+	const viewDetail = 'View';
+	const closeDetailsContainer = 'Close';
+
+	obj.button.addEventListener(click, () => {
+		if (!obj.container.classList.contains(flexActive)) {
+			toggleClass(obj.container, flexActive);
+			textContent(obj.button, closeDetailsContainer);
 		} else {
-			toggleClass(container, flexActive);
-			textContent(btn, viewDetails);
+			toggleClass(obj.container, flexActive);
+			textContent(obj.button, viewDetail);
 		}
 	});
 };
 
-toggleSkillDetails(htmlSkillBtn, htmlDetails);
-toggleSkillDetails(cssSkillBtn, cssDetails);
-toggleSkillDetails(gitSkillBtn, gitDetails);
-toggleSkillDetails(jsSkillBtn, jsDetails);
+toggleSkillDetails(html);
+toggleSkillDetails(css);
+toggleSkillDetails(git);
+toggleSkillDetails(js);
