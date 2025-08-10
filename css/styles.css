@@ -157,6 +157,7 @@
 
 .skill-container {
 	width: fit-content;
+	flex-direction: column;
 	height: auto;
 	border: 2px solid var(--accent);
 	border-radius: 50px;
