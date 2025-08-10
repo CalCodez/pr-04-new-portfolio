@@ -180,8 +180,8 @@
 
 .skill-details-container {
 	height: 180px;
-	max-width: 320px;
-	min-width: 300px;
+	max-width: 250px;
+	min-width: 250px;
 	justify-content: space-around;
 	align-items: center;
 	flex-wrap: wrap;
@@ -190,10 +190,10 @@
 }
 
 .skill-li {
-	width: 70px;
-	height: 70px;
+	width: 60px;
+	height: 60px;
 	color: var(--font-color-main);
-	font-size: 15px;
+	font-size: 13px;
 	font-weight: 600;
 	transition: all ease-in 0.5s;
 	border: 1px outset var(--accent);
