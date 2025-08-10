@@ -122,47 +122,47 @@ const toggleParentContainers = (arr, targetContainer, cont1, cont2, cont3, cont4
 	}
 };
 
-toggleParentContainers(
-	toggleAbout,
-	aboutParent,
-	homeParent,
-	skillsParent,
-	projectsParent,
-	contactParent,
-	aboutIcon
-);
-toggleParentContainers(
-	toggleSkills,
-	skillsParent,
-	projectsParent,
-	contactParent,
-	homeParent,
-	aboutParent
-);
-toggleParentContainers(
-	toggleProjects,
-	projectsParent,
-	contactParent,
-	homeParent,
-	aboutParent,
-	skillsParent
-);
-toggleParentContainers(
-	toggleContact,
-	contactParent,
-	homeParent,
-	aboutParent,
-	skillsParent,
-	projectsParent
-);
-toggleParentContainers(
-	toggleHome,
-	homeParent,
-	aboutParent,
-	skillsParent,
-	projectsParent,
-	contactParent
-);
+//toggleParentContainers(
+//	toggleAbout,
+//	aboutParent,
+//	homeParent,
+//	skillsParent,
+//	projectsParent,
+//	contactParent,
+//	aboutIcon
+//);
+//toggleParentContainers(
+//	toggleSkills,
+//	skillsParent,
+//	projectsParent,
+//	contactParent,
+//	homeParent,
+//	aboutParent
+//);
+//toggleParentContainers(
+//	toggleProjects,
+//	projectsParent,
+//	contactParent,
+//	homeParent,
+//	aboutParent,
+//	skillsParent
+//);
+//toggleParentContainers(
+//	toggleContact,
+//	contactParent,
+//	homeParent,
+//	aboutParent,
+//	skillsParent,
+//	projectsParent
+//);
+//toggleParentContainers(
+//	toggleHome,
+//	homeParent,
+//	aboutParent,
+//	skillsParent,
+//	projectsParent,
+//	contactParent
+//);
 
 //Project Info Container Vars and Functions
 function triggerProjectInfoContainer() {
@@ -193,3 +193,32 @@ function triggerProjectInfoContainer() {
 	});
 }
 triggerProjectInfoContainer();
+
+//Skills details Var and Function
+
+const skillDetailsContainer = selectAll('.skill-details-container');
+
+const [htmlDetails, cssDetails, gitDetails, jsDetails] = skillDetailsContainer;
+
+const skillButtons = selectAll('.skill-button');
+const [htmlSkillBtn, cssSkillBtn, gitSkillBtn, jsSkillBtn] = skillButtons;
+
+const toggleSkillDetails = (btn, container) => {
+	const closeContainer = 'Close';
+	const viewDetails = 'View';
+
+	btn.addEventListener(click, () => {
+		if (!container.classList.contains(flexActive)) {
+			toggleClass(container, flexActive);
+			textContent(btn, closeContainer);
+		} else {
+			toggleClass(container, flexActive);
+			textContent(btn, viewDetails);
+		}
+	});
+};
+
+toggleSkillDetails(htmlSkillBtn, htmlDetails);
+toggleSkillDetails(cssSkillBtn, cssDetails);
+toggleSkillDetails(gitSkillBtn, gitDetails);
+toggleSkillDetails(jsSkillBtn, jsDetails);

@@ -27,9 +27,25 @@
 	}
 }
 
+@media (max-width: 500px) {
+	.skills-parent-wrapper {
+		row-gap: 30px;
+	}
+
+	.skill-container {
+		justify-content: center;
+		width: 350px;
+	}
+}
+
 @media (max-width: 467px) {
 	body {
 		place-content: center;
+		padding: 0;
+	}
+
+	.parent-wrapper {
+		margin-top: 50px;
 	}
 	.home-parent-wrapper {
 		flex-direction: column-reverse;
@@ -52,7 +68,8 @@
 }
 
 @media (max-width: 320px) {
-	html {
+	html,
+	body {
 		padding: 0;
 	}
 
@@ -90,5 +107,13 @@
 	.brand-name {
 		font-size: 3rem;
 		margin-bottom: 0;
+	}
+
+	.skills-parent-wrapper {
+		outline: var(--olB);
+	}
+
+	.skill-container {
+		width: 250px;
 	}
 }
