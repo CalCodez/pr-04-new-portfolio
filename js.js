@@ -164,38 +164,6 @@ toggleParentContainers(
 	contactParent
 );
 
-//Project Info Container Vars and Functions
-
-//~~NOTE: Deleting This Function don't need for new project card hover detail Idea
-function triggerProjectInfoContainer() {
-	const projectInfoContainer = getById('project-info-container');
-	const getProjectInfoButtons = selectAll('.get-project-info-button');
-	const activeInfoMenu = 'project-info-container-active';
-
-	for (let togglers of getProjectInfoButtons) {
-		togglers.addEventListener(click, () => {
-			if (!projectInfoContainer.classList.contains(activeInfoMenu)) {
-				toggleClass(projectInfoContainer, activeInfoMenu);
-			} else {
-				toggleClass(projectInfoContainer, activeInfoMenu);
-			}
-		});
-	}
-
-	projectInfoContainer.addEventListener(click, () => {
-		if (projectInfoContainer.classList.contains(activeInfoMenu)) {
-			toggleClass(projectInfoContainer, activeInfoMenu);
-		}
-	});
-
-	window.addEventListener(keyup, () => {
-		if (projectInfoContainer.classList.contains(activeInfoMenu)) {
-			toggleClass(projectInfoContainer, activeInfoMenu);
-		}
-	});
-}
-triggerProjectInfoContainer();
-
 //Skills details Var and Function
 
 const skillDetailsContainer = selectAll('.skill-details-container');
