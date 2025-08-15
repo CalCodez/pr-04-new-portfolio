@@ -7,10 +7,16 @@
 	--olR: 1px solid red;
 
 	--bg-color-main: #1c1c1c;
+	--rgb-bg-color-main: rgba(28, 28, 28, 0.8);
 	--font-color-main: #c0c8ca;
 	--contrast-light: #d4d8dd;
 	--contrast-dark: #4d4d4f;
 	--accent: #c11b17;
+
+	--html-glow: #ff7817;
+	--css-glow: #1d75b8;
+	--git-glow: #454545;
+	--js-glow: #ffc108;
 }
 
 li {

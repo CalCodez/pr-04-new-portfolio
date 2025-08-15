@@ -68,25 +68,22 @@ const [
 
 const toggleHome = [mainNavToggles[0], mobileNavToggles[0]];
 const toggleAbout = [mainNavToggles[1], mobileNavToggles[1]];
-const toggleSkills = [mainNavToggles[2], mobileNavToggles[2]];
 const toggleProjects = [mainNavToggles[3], mobileNavToggles[3]];
 const toggleContact = [mainNavToggles[4], mobileNavToggles[4]];
 
 const homeParent = getById('home-parent-wrapper');
 const aboutParent = getById('about-parent-wrapper');
-const skillsParent = getById('skills-parent-wrapper');
 const projectsParent = getById('projects-parent-wrapper');
 const contactParent = getById('contact-parent-wrapper');
 
-const toggleParentContainers = (arr, targetContainer, cont1, cont2, cont3, cont4) => {
+const toggleParentContainers = (arr, targetContainer, cont1, cont2, cont3) => {
 	for (let toggler of arr) {
 		toggler.addEventListener(click, () => {
 			if (
 				!targetContainer.classList.contains(flexActive) &&
 				cont1.classList.contains(flexActive) &&
 				!cont2.classList.contains(flexActive) &&
-				!cont3.classList.contains(flexActive) &&
-				!cont4.classList.contains(flexActive)
+				!cont3.classList.contains(flexActive)
 			) {
 				toggleClass(cont1, flexActive);
 				toggleClass(targetContainer, flexActive);
@@ -94,8 +91,7 @@ const toggleParentContainers = (arr, targetContainer, cont1, cont2, cont3, cont4
 				!targetContainer.classList.contains(flexActive) &&
 				!cont1.classList.contains(flexActive) &&
 				cont2.classList.contains(flexActive) &&
-				!cont3.classList.contains(flexActive) &&
-				!cont4.classList.contains(flexActive)
+				!cont3.classList.contains(flexActive)
 			) {
 				toggleClass(cont2, flexActive);
 				toggleClass(targetContainer, flexActive);
@@ -103,19 +99,9 @@ const toggleParentContainers = (arr, targetContainer, cont1, cont2, cont3, cont4
 				!targetContainer.classList.contains(flexActive) &&
 				!cont1.classList.contains(flexActive) &&
 				!cont2.classList.contains(flexActive) &&
-				cont3.classList.contains(flexActive) &&
-				!cont4.classList.contains(flexActive)
+				cont3.classList.contains(flexActive)
 			) {
 				toggleClass(cont3, flexActive);
-				toggleClass(targetContainer, flexActive);
-			} else if (
-				!targetContainer.classList.contains(flexActive) &&
-				!cont1.classList.contains(flexActive) &&
-				!cont2.classList.contains(flexActive) &&
-				!cont3.classList.contains(flexActive) &&
-				cont4.classList.contains(flexActive)
-			) {
-				toggleClass(cont4, flexActive);
 				toggleClass(targetContainer, flexActive);
 			}
 		});
@@ -126,73 +112,43 @@ toggleParentContainers(
 	toggleAbout,
 	aboutParent,
 	homeParent,
-	skillsParent,
 	projectsParent,
 	contactParent,
 	aboutIcon
 );
-toggleParentContainers(
-	toggleSkills,
-	skillsParent,
-	projectsParent,
-	contactParent,
-	homeParent,
-	aboutParent
-);
-toggleParentContainers(
-	toggleProjects,
-	projectsParent,
-	contactParent,
-	homeParent,
-	aboutParent,
-	skillsParent
-);
-toggleParentContainers(
-	toggleContact,
-	contactParent,
-	homeParent,
-	aboutParent,
-	skillsParent,
-	projectsParent
-);
-toggleParentContainers(
-	toggleHome,
-	homeParent,
-	aboutParent,
-	skillsParent,
-	projectsParent,
-	contactParent
-);
 
-//Skills details Var and Function
+toggleParentContainers(toggleProjects, projectsParent, contactParent, homeParent, aboutParent);
+toggleParentContainers(toggleContact, contactParent, homeParent, aboutParent, projectsParent);
+toggleParentContainers(toggleHome, homeParent, aboutParent, projectsParent, contactParent);
 
-const skillDetailsContainer = selectAll('.skill-details-container');
-const skillButtons = selectAll('.skill-button');
+//Skills Modal Vars and Function
 
-const skillDetails = {
-	html: { button: skillButtons[0], container: skillDetailsContainer[0] },
-	css: { button: skillButtons[1], container: skillDetailsContainer[1] },
-	git: { button: skillButtons[2], container: skillDetailsContainer[2] },
-	js: { button: skillButtons[3], container: skillDetailsContainer[3] },
+const skillsObject = {
+	html: {
+		logos: './assets/logos/html.png',
+		details: ['Boiler Plate', 'Styled Elements', 'Buttons', 'Forms', 'And More'],
+	},
+	css: {
+		logos: './assets/logos/css.png',
+		details: ['Selectors', 'Animations', 'FlexBox', 'Media Queries', 'And More'],
+	},
+	git: {
+		logos: './assets/logos/github.png',
+		details: ['Config', 'Pull', 'Commit', 'Push', 'And More'],
+	},
+	js: {
+		logos: './assets/logos/javascript.png',
+		details: ['Data Types', 'Functions', 'Loops', 'Dom', 'And More'],
+	},
+	parentContainer: getById('skills-parent-wrapper'),
+	skillsParentToggles: [mainNavToggles[2], mobileNavToggles[2]],
+	skillModalExit: getById('skill-modal-exit'),
+	skillPopOverExt: getById('skill-popover-exit'),
+	skillsDetailsContainer: getById('skills-details-container'),
+
+	classes: {
+		skillsWrapper: 'skills-wrapper',
+		skillPan: 'skill-span',
+		skillButton: 'skill-button',
+	},
 };
-const { html, css, git, js } = skillDetails;
-
-const toggleSkillDetails = (obj) => {
-	const viewDetail = 'View';
-	const closeDetailsContainer = 'Close';
-
-	obj.button.addEventListener(click, () => {
-		if (!obj.container.classList.contains(flexActive)) {
-			toggleClass(obj.container, flexActive);
-			textContent(obj.button, closeDetailsContainer);
-		} else {
-			toggleClass(obj.container, flexActive);
-			textContent(obj.button, viewDetail);
-		}
-	});
-};
-
-toggleSkillDetails(html);
-toggleSkillDetails(css);
-toggleSkillDetails(git);
-toggleSkillDetails(js);

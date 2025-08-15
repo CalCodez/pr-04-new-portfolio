@@ -17,6 +17,8 @@
 		<title>CalCodez</title>
 	</head>
 	<body>
+		<!-- ++Project Main -->
+
 		<i id="mobile-menu-toggler" class="fa-solid fa-bars"></i>
 		<div id="mobile-menu" class="container mobile-menu">
 			<nav class="mobile-nav container">
@@ -37,7 +39,7 @@
 			<li class="nav-li"><i class="fa-solid fa-envelope nav-icons"></i> CONTACT</li>
 		</div>
 		<!-- **Home Parent -->
-		<div id="home-parent-wrapper" class="home-parent-wrapper parent-wrapper flex-Inactive">
+		<div id="home-parent-wrapper" class="home-parent-wrapper parent-wrapper flex-active">
 			<div class="container hero-section">
 				<div class="container hero-intro-container">
 					<p>Welcome!</p>
@@ -66,79 +68,8 @@
 			</div>
 		</div>
 
-		<!-- **Skills Parent -->
-		<div id="skills-parent-wrapper" class="skills-parent-wrapper parent-wrapper">
-			<div class="parent-header-container">
-				<header class="parent-header-text">Skills</header>
-			</div>
-
-			<div class="skill-container container">
-				<div class="skill-img-container container">
-					<img src="./assets/logos/html.png" alt="html" />
-				</div>
-				<div class="skill-details-container container">
-					<li class="skill-li">Boiler Plate</li>
-					<li class="skill-li">Styled Elements</li>
-					<li class="skill-li">Buttons</li>
-					<li class="skill-li">Forms and Inputs</li>
-					<li class="skill-li">And More</li>
-				</div>
-				<div class="skill-button-container container">
-					<button class="skill-button">View</button>
-				</div>
-			</div>
-
-			<div class="skill-container container">
-				<div class="skill-img-container container">
-					<img src="./assets/logos/css.png" alt="html" />
-				</div>
-				<div class="skill-details-container container">
-					<li class="skill-li">Selectors</li>
-					<li class="skill-li">Animation</li>
-					<li class="skill-li">Flexbox</li>
-					<li class="skill-li">Media Queries</li>
-					<li class="skill-li">And More</li>
-				</div>
-				<div class="skill-button-container container">
-					<button class="skill-button">View</button>
-				</div>
-			</div>
-
-			<div class="skill-container container">
-				<div class="skill-img-container container">
-					<img src="./assets/logos/github.png" alt="html" />
-				</div>
-				<div class="skill-details-container container">
-					<li class="skill-li">Config</li>
-					<li class="skill-li">Pull</li>
-					<li class="skill-li">Commit</li>
-					<li class="skill-li">Push</li>
-					<li class="skill-li">And More</li>
-				</div>
-				<div class="skill-button-container container">
-					<button class="skill-button">View</button>
-				</div>
-			</div>
-
-			<div class="skill-container container">
-				<div class="skill-img-container container">
-					<img src="./assets/logos/javascript.png" alt="html" />
-				</div>
-				<div class="skill-details-container container">
-					<li class="skill-li">Data Types</li>
-					<li class="skill-li">Functions</li>
-					<li class="skill-li">Loops</li>
-					<li class="skill-li">Dom</li>
-					<li class="skill-li">And More</li>
-				</div>
-				<div class="skill-button-container container">
-					<button class="skill-button">View</button>
-				</div>
-			</div>
-		</div>
-
 		<!-- **Project Parent -->
-		<div id="projects-parent-wrapper" class="project-parent-wrapper parent-wrapper flex-active">
+		<div id="projects-parent-wrapper" class="project-parent-wrapper parent-wrapper">
 			<div class="parent-header-container">
 				<header class="parent-header-text">Projects</header>
 			</div>
@@ -170,6 +101,45 @@
 		<div id="contact-parent-wrapper" class="contact-parent-wrapper parent-wrapper">
 			<div class="parent-header-container">
 				<header class="parent-header-text">Contact</header>
+			</div>
+		</div>
+
+		<!-- **Skills Modal -->
+		<div id="skills-parent-wrapper" class="container skills-modal parent-wrapper">
+			<div class="parent-header-container">
+				<header class="parent-header-text">Skills</header>
+			</div>
+			<div class="skills-wrapper container">
+				<i id="skill-modal-exit" class="fa-solid fa-x skills-exit"></i>
+
+				<span class="skill-span">
+					<img src="./assets/logos/html.png" alt="html logo" />
+					<button class="skill-button">Details</button>
+				</span>
+				<span class="skill-span">
+					<img src="./assets/logos/css.png" alt="css logo" />
+					<button class="skill-button">Details</button>
+				</span>
+				<span class="skill-span">
+					<img src="./assets/logos/github.png" alt="github logo" />
+					<button class="skill-button">Details</button>
+				</span>
+				<span class="skill-span">
+					<img src="./assets/logos/javascript.png" alt="js logo" />
+					<button class="skill-button">Details</button>
+				</span>
+			</div>
+
+			<div class="skill-details-popover-container container">
+				<i id="skill-pop-over-exit" class="fa-solid fa-x skill-exit"></i>
+				<div class="skill-detail-header-container">Skill Detail</div>
+				<div id="skils-details-container" class="skills-details-container container">
+					<li class="">Boiler Plate</li>
+					<li class="">Styled Elements</li>
+					<li class="">Buttons</li>
+					<li class="">Forms and Inputs</li>
+					<li class="">And More</li>
+				</div>
 			</div>
 		</div>
 
