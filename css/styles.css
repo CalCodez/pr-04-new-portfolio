@@ -340,6 +340,7 @@
 	height: 90%;
 	justify-content: space-evenly;
 	position: relative;
+	outline: var(--olR);
 }
 
 .skill-span {
@@ -441,26 +442,26 @@
 	position: absolute;
 	background: conic-gradient(var(--bg-color-main), var(--contrast-dark), var(--black));
 	display: none;
+	z-index: 6;
 }
 
 .skills-exit {
-	color: var(--font-color-main);
+	color: var(--accent);
 	position: absolute;
 	top: 10px;
 	right: 10px;
 	cursor: pointer;
-	font-size: 20px;
+	font-size: 30px;
 	font-weight: 600;
+	text-shadow: 2px 2px 2px var(--black);
+}
+
+.skill-details-popover-container > i {
+	font-size: 20px;
 }
 
 .skills-exit:hover {
 	transform: scale(1.1);
-}
-
-.skills-exit:nth-child(1) {
-	font-size: 30px;
-	right: 30px;
-	color: var(--accent);
 }
 
 .skill-detail-header-container {

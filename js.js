@@ -140,15 +140,121 @@ const skillsObject = {
 		logos: './assets/logos/javascript.png',
 		details: ['Data Types', 'Functions', 'Loops', 'Dom', 'And More'],
 	},
-	parentContainer: getById('skills-parent-wrapper'),
+	parentContainer: getById('skills-modal'),
 	skillsParentToggles: [mainNavToggles[2], mobileNavToggles[2]],
 	skillModalExit: getById('skill-modal-exit'),
 	skillPopOverExt: getById('skill-popover-exit'),
-	skillsDetailsContainer: getById('skills-details-container'),
+	skillPopOverContainer: getById('skill-details-popover-container'),
+	skillsDetailsContainer: getById('skill-detail-container'),
 
 	classes: {
 		skillsWrapper: 'skills-wrapper',
-		skillPan: 'skill-span',
+		skillSpan: 'skill-span',
 		skillButton: 'skill-button',
 	},
 };
+
+const togglePopOverContainer = (button, popOverContainer, skillDetails, obj) => {
+	let skillLi = [];
+	button.addEventListener(click, () => {
+		if (!popOverContainer.classList.contains(flexActive)) {
+			toggleClass(popOverContainer, flexActive);
+			for (let i = 0; i < 5; i++) {
+				const li = createElement('li');
+				skillLi.push(li);
+			}
+			const [one, two, three, four, five] = skillLi;
+			textContent(one, obj[0]);
+			textContent(two, obj[1]);
+			textContent(three, obj[2]);
+			textContent(four, obj[3]);
+			textContent(five, obj[4]);
+			for (let detail of skillLi) {
+				appendChild(skillDetails, detail);
+			}
+		} else {
+			toggleClass(popOverContainer, flexActive);
+			skillLi = [];
+		}
+	});
+};
+
+const ToggleSkillsContainer = (obj) => {
+	const skillSpans = [];
+	const skillImgs = [];
+	const skillButtons = [];
+	for (let toggler of obj.skillsParentToggles) {
+		toggler.addEventListener(click, () => {
+			if (!obj.parentContainer.classList.contains(flexActive)) {
+				toggleClass(obj.parentContainer, flexActive);
+				const skillsWrapperContainer = createElement('div');
+				addClass(skillsWrapperContainer, obj.classes.skillsWrapper);
+				addClass(skillsWrapperContainer, 'container');
+				appendChild(obj.parentContainer, skillsWrapperContainer);
+
+				const skillModalExit = createElement('i');
+				addClass(skillModalExit, 'skills-exit');
+				addClass(skillModalExit, 'fa-solid');
+				addClass(skillModalExit, 'fa-x');
+				skillModalExit.id = 'skill-modal-exit';
+				appendChild(skillsWrapperContainer, skillModalExit);
+
+				for (let i = 0; i < 4; i++) {
+					const span = createElement('span');
+					const img = createElement('img');
+					const button = createElement('button');
+					skillSpans.push(span);
+					skillImgs.push(img);
+					skillButtons.push(button);
+				}
+
+				const [htmlSpan, cssSpan, gitSpan, jsSpan] = skillSpans;
+				const [htmlImg, cssImg, gitImg, jsImg] = skillImgs;
+				const [htmlButton, cssButton, gitButton, jsButton] = skillButtons;
+
+				togglePopOverContainer(
+					htmlButton,
+					obj.skillPopOverContainer,
+					obj.skillsDetailsContainer,
+					obj.html.details
+				);
+
+				for (let elem of skillSpans) {
+					addClass(elem, obj.classes.skillSpan);
+					appendChild(skillsWrapperContainer, elem);
+				}
+
+				for (let elem of skillButtons) {
+					addClass(elem, obj.classes.skillButton);
+					textContent(elem, 'Details');
+				}
+				htmlImg.src = obj.html.logos;
+				cssImg.src = obj.css.logos;
+				gitImg.src = obj.git.logos;
+				jsImg.src = obj.js.logos;
+
+				appendChild(htmlSpan, htmlImg);
+				appendChild(cssSpan, cssImg);
+				appendChild(gitSpan, gitImg);
+				appendChild(jsSpan, jsImg);
+
+				appendChild(htmlSpan, htmlButton);
+				appendChild(cssSpan, cssButton);
+				appendChild(gitSpan, gitButton);
+				appendChild(jsSpan, jsButton);
+
+				skillModalExit.addEventListener(click, () => {
+					if (obj.parentContainer.classList.contains(flexActive)) {
+						toggleClass(obj.parentContainer, flexActive);
+						removeChild(obj.parentContainer, skillsWrapperContainer);
+						for (let elem of skillSpans) {
+							skillSpans.length = [];
+						}
+					}
+				});
+			}
+		});
+	}
+};
+
+ToggleSkillsContainer(skillsObject);
