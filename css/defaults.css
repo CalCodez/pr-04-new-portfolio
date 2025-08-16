@@ -91,7 +91,7 @@ body {
 	left: 10px;
 	top: 10px;
 	color: var(--accent);
-	z-index: 3;
+	z-index: 9;
 	cursor: pointer;
 	display: none;
 }
@@ -120,7 +120,7 @@ body {
 		var(--contrast-dark),
 		var(--accent)
 	);
-	z-index: 1;
+	z-index: 6;
 	padding: 8px;
 
 	transition: height ease-in-out 0.5s;
