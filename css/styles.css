@@ -453,6 +453,7 @@
 	font-size: 30px;
 	font-weight: 600;
 	text-shadow: 2px 2px 2px var(--black);
+	z-index: 5;
 }
 
 .skill-details-popover-container > i {
