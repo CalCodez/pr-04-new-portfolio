@@ -157,49 +157,6 @@ const skillsObject = {
 	},
 };
 
-const togglePopOverContainer = (
-	button,
-	popOverContainer = obj.popOverContainer,
-	popoverHeader = obj.popOverHeaderContainer,
-	headerText,
-	skillDetails = obj.skillsDetailsContainer,
-	obj
-) => {
-	const skillLi = [];
-	button.addEventListener(click, () => {
-		if (!popOverContainer.classList.contains(flexActive)) {
-			toggleClass(popOverContainer, flexActive);
-			textContent(popoverHeader, headerText);
-
-			for (let i = 0; i < 5; i++) {
-				const li = createElement('li');
-				skillLi.push(li);
-			}
-			const [one, two, three, four, five] = skillLi;
-			textContent(one, obj[0]);
-			textContent(two, obj[1]);
-			textContent(three, obj[2]);
-			textContent(four, obj[3]);
-			textContent(five, obj[4]);
-
-			for (let detail of skillLi) {
-				appendChild(skillDetails, detail);
-			}
-
-			const skillPopOverExit = getById('skill-pop-over-exit');
-			skillPopOverExit.addEventListener(click, () => {
-				if (popOverContainer.classList.contains(flexActive)) {
-					toggleClass(popOverContainer, flexActive);
-					for (let detail of skillLi) {
-						removeChild(skillDetails, detail);
-						skillLi.length = 0;
-					}
-				}
-			});
-		}
-	});
-};
-
 const ToggleSkillsContainer = (obj) => {
 	const skillSpans = [];
 	const skillImgs = [];
@@ -233,38 +190,40 @@ const ToggleSkillsContainer = (obj) => {
 				const [htmlImg, cssImg, gitImg, jsImg] = skillImgs;
 				const [htmlButton, cssButton, gitButton, jsButton] = skillButtons;
 
-				togglePopOverContainer(
-					htmlButton,
-					obj.skillPopOverContainer,
-					obj.popOverHeaderContainer,
-					obj.html.name,
-					obj.skillsDetailsContainer,
-					obj.html.details
-				);
-				togglePopOverContainer(
-					cssButton,
-					obj.skillPopOverContainer,
-					obj.popOverHeaderContainer,
-					obj.css.name,
-					obj.skillsDetailsContainer,
-					obj.css.details
-				);
-				togglePopOverContainer(
-					gitButton,
-					obj.skillPopOverContainer,
-					obj.popOverHeaderContainer,
-					obj.git.name,
-					obj.skillsDetailsContainer,
-					obj.git.details
-				);
-				togglePopOverContainer(
-					jsButton,
-					obj.skillPopOverContainer,
-					obj.popOverHeaderContainer,
-					obj.js.name,
-					obj.skillsDetailsContainer,
-					obj.js.details
-				);
+				const skillLi = selectAll('.skill-li');
+				const { html, css, git, js, ...rest } = skillsObject;
+
+				const skillPopOver = rest.skillPopOverContainer;
+
+				const togglePopOverContainer = (toggler, container, obj) => {
+					toggler.addEventListener(click, () => {
+						if (!container.classList.contains(flexActive)) {
+							skillModalExit.style.visibility = 'hidden';
+							textContent(rest.popOverHeaderContainer, obj.name);
+							toggleClass(container, flexActive);
+							textContent(skillLi[0], obj.details[0]);
+							textContent(skillLi[1], obj.details[1]);
+							textContent(skillLi[2], obj.details[2]);
+							textContent(skillLi[3], obj.details[3]);
+							textContent(skillLi[4], obj.details[4]);
+						}
+					});
+					const skillPopOverExit = getById('skill-pop-over-exit');
+					skillPopOverExit.addEventListener(click, () => {
+						if (container.classList.contains(flexActive)) {
+							toggleClass(container, flexActive);
+							skillModalExit.style.visibility = 'visible';
+							for (let skill of skillLi) {
+								textContent(skill, '');
+							}
+						}
+					});
+				};
+
+				togglePopOverContainer(htmlButton, skillPopOver, html);
+				togglePopOverContainer(cssButton, skillPopOver, css);
+				togglePopOverContainer(gitButton, skillPopOver, git);
+				togglePopOverContainer(jsButton, skillPopOver, js);
 
 				for (let elem of skillSpans) {
 					addClass(elem, obj.classes.skillSpan);
