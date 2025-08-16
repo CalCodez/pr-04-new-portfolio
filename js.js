@@ -125,27 +125,30 @@ toggleParentContainers(toggleHome, homeParent, aboutParent, projectsParent, cont
 
 const skillsObject = {
 	html: {
+		name: 'HTML',
 		logos: './assets/logos/html.png',
 		details: ['Boiler Plate', 'Styled Elements', 'Buttons', 'Forms', 'And More'],
 	},
 	css: {
+		name: 'CSS',
 		logos: './assets/logos/css.png',
 		details: ['Selectors', 'Animations', 'FlexBox', 'Media Queries', 'And More'],
 	},
 	git: {
+		name: 'GITHUB',
 		logos: './assets/logos/github.png',
 		details: ['Config', 'Pull', 'Commit', 'Push', 'And More'],
 	},
 	js: {
+		name: 'JAVASCRIPT',
 		logos: './assets/logos/javascript.png',
 		details: ['Data Types', 'Functions', 'Loops', 'Dom', 'And More'],
 	},
 	parentContainer: getById('skills-modal'),
 	skillsParentToggles: [mainNavToggles[2], mobileNavToggles[2]],
-	skillModalExit: getById('skill-modal-exit'),
-	skillPopOverExt: getById('skill-popover-exit'),
 	skillPopOverContainer: getById('skill-details-popover-container'),
-	skillsDetailsContainer: getById('skill-detail-container'),
+	skillsDetailsContainer: getById('skills-detail-container'),
+	popOverHeaderContainer: select('.skill-detail-header-container'),
 
 	classes: {
 		skillsWrapper: 'skills-wrapper',
@@ -154,11 +157,20 @@ const skillsObject = {
 	},
 };
 
-const togglePopOverContainer = (button, popOverContainer, skillDetails, obj) => {
-	let skillLi = [];
+const togglePopOverContainer = (
+	button,
+	popOverContainer = obj.popOverContainer,
+	popoverHeader = obj.popOverHeaderContainer,
+	headerText,
+	skillDetails = obj.skillsDetailsContainer,
+	obj
+) => {
+	const skillLi = [];
 	button.addEventListener(click, () => {
 		if (!popOverContainer.classList.contains(flexActive)) {
 			toggleClass(popOverContainer, flexActive);
+			textContent(popoverHeader, headerText);
+
 			for (let i = 0; i < 5; i++) {
 				const li = createElement('li');
 				skillLi.push(li);
@@ -169,12 +181,21 @@ const togglePopOverContainer = (button, popOverContainer, skillDetails, obj) => 
 			textContent(three, obj[2]);
 			textContent(four, obj[3]);
 			textContent(five, obj[4]);
+
 			for (let detail of skillLi) {
 				appendChild(skillDetails, detail);
 			}
-		} else {
-			toggleClass(popOverContainer, flexActive);
-			skillLi = [];
+
+			const skillPopOverExit = getById('skill-pop-over-exit');
+			skillPopOverExit.addEventListener(click, () => {
+				if (popOverContainer.classList.contains(flexActive)) {
+					toggleClass(popOverContainer, flexActive);
+					for (let detail of skillLi) {
+						removeChild(skillDetails, detail);
+						skillLi.length = 0;
+					}
+				}
+			});
 		}
 	});
 };
@@ -215,8 +236,34 @@ const ToggleSkillsContainer = (obj) => {
 				togglePopOverContainer(
 					htmlButton,
 					obj.skillPopOverContainer,
+					obj.popOverHeaderContainer,
+					obj.html.name,
 					obj.skillsDetailsContainer,
 					obj.html.details
+				);
+				togglePopOverContainer(
+					cssButton,
+					obj.skillPopOverContainer,
+					obj.popOverHeaderContainer,
+					obj.css.name,
+					obj.skillsDetailsContainer,
+					obj.css.details
+				);
+				togglePopOverContainer(
+					gitButton,
+					obj.skillPopOverContainer,
+					obj.popOverHeaderContainer,
+					obj.git.name,
+					obj.skillsDetailsContainer,
+					obj.git.details
+				);
+				togglePopOverContainer(
+					jsButton,
+					obj.skillPopOverContainer,
+					obj.popOverHeaderContainer,
+					obj.js.name,
+					obj.skillsDetailsContainer,
+					obj.js.details
 				);
 
 				for (let elem of skillSpans) {
@@ -247,9 +294,7 @@ const ToggleSkillsContainer = (obj) => {
 					if (obj.parentContainer.classList.contains(flexActive)) {
 						toggleClass(obj.parentContainer, flexActive);
 						removeChild(obj.parentContainer, skillsWrapperContainer);
-						for (let elem of skillSpans) {
-							skillSpans.length = [];
-						}
+						skillSpans.length = [];
 					}
 				});
 			}
