@@ -63,6 +63,9 @@ body {
 	height: 40px;
 	text-align: center;
 	align-content: center;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	overflow: hidden;
 }
 
 .parent-header-text {
@@ -81,7 +84,6 @@ body {
 		var(--contrast-dark),
 		var(--accent)
 	);
-	border-radius: 20px;
 	border: 2px outset var(--contrast-dark);
 }
 
