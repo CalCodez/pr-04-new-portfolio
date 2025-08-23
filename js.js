@@ -152,22 +152,20 @@ const { html, css, github, js } = codeObj;
 const toggleCodeModal = (toggles) => {
 	const codeModal = getById('code-modal');
 	const modalActive = 'modal-active';
-	const CodeModalExit = getById('code-modal-exit');
-
-	const logoSpans = [];
-	const nameSpans = [];
-	const logoImgs = [];
+	const codeModalExit = getById('code-modal-exit');
+	const codeSpanWrapper = createElement('div');
+	let logoSpans = [];
+	let nameSpans = [];
+	let logoImgs = [];
 
 	for (let toggler of toggles) {
 		toggler.addEventListener(click, () => {
 			if (!codeModal.classList.contains(modalActive)) {
 				toggleClass(codeModal, modalActive);
-				toggleClass(CodeModalExit, flexActive);
 
-				console.log(CodeModalExit);
+				codeModalExit.style.display = 'block';
 
 				//create code span wrapper
-				const codeSpanWrapper = createElement('div');
 				addClass(codeSpanWrapper, 'code-span-wrapper');
 				addClass(codeSpanWrapper, 'container');
 				appendChild(codeModal, codeSpanWrapper);
@@ -215,6 +213,51 @@ const toggleCodeModal = (toggles) => {
 				appendChild(gitHubCodeSpan, gitHubNameSpan);
 				appendChild(jsCodeSpan, jsImg);
 				appendChild(jsCodeSpan, jsNameSpan);
+
+				const closeCodeModalToggles = [codeModal, codeModalExit];
+
+				const closeCodeModal = (arr) => {
+					for (let togglers of arr) {
+						togglers.addEventListener(click, () => {
+							if (codeModal.classList.contains(modalActive)) {
+								console.log(codeModalExit);
+								toggleClass(codeModal, modalActive);
+								codeModalExit.style.display = 'none';
+
+								removeChild(codeModal, codeSpanWrapper);
+								//remove appended spans from codespanwrapper
+								for (let elms of logoSpans) {
+									removeChild(codeSpanWrapper, elms);
+								}
+
+								//Clear arrays from generated elems
+								logoSpans = [];
+								nameSpans = [];
+								logoImgs = [];
+							}
+						});
+					}
+				};
+
+				window.addEventListener(keyup, () => {
+					if (event.key === 'Escape' && codeModal.classList.contains(modalActive)) {
+						console.log(codeModalExit);
+						toggleClass(codeModal, modalActive);
+						codeModalExit.style.display = 'none';
+
+						removeChild(codeModal, codeSpanWrapper);
+						//remove appended spans from codespanwrapper
+						for (let elms of logoSpans) {
+							removeChild(codeSpanWrapper, elms);
+						}
+
+						//Clear arrays from generated elems
+						logoSpans = [];
+						nameSpans = [];
+						logoImgs = [];
+					}
+				});
+				closeCodeModal(closeCodeModalToggles);
 			}
 		});
 	}
