@@ -32,27 +32,10 @@
 		width: 300px;
 	}
 
-	.skill-details-popover-container {
-		top: 20%;
-	}
 }
 
 @media (max-width: 500px) {
-	.skills-wrapper {
-		flex-direction: column;
-		width: 90%;
-		outline: var(--accent);
-	}
 
-	.skill-span {
-		width: 150px;
-		height: 150px;
-	}
-	.skill-span > img {
-		object-fit: cover;
-		width: 70%;
-		height: 70%;
-	}
 
 	.parent-wrapper {
 		height: auto;
@@ -127,18 +110,5 @@
 		margin-bottom: 0;
 	}
 
-	.skill-span {
-		width: 120px;
-		height: 120px;
-	}
-
-	.skill-button {
-		width: 100px;
-		height: 30px;
-		right: 30px;
-	}
-
-	.skill-details-popover-container {
-		width: 240px;
 	}
 }

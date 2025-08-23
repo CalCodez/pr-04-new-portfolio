@@ -123,7 +123,8 @@ toggleParentContainers(toggleHome, homeParent, aboutParent, projectsParent, cont
 
 //Skills Modal Vars and Function
 
-const skillsObject = {
+const codeModalToggles = [mainNavToggles[2], mobileNavToggles[2]];
+const codeObj = {
 	html: {
 		name: 'HTML',
 		logos: './assets/logos/html.png',
@@ -134,7 +135,7 @@ const skillsObject = {
 		logos: './assets/logos/css.png',
 		details: ['Selectors', 'Animations', 'FlexBox', 'Media Queries', 'And More'],
 	},
-	git: {
+	github: {
 		name: 'GITHUB',
 		logos: './assets/logos/github.png',
 		details: ['Config', 'Pull', 'Commit', 'Push', 'And More'],
@@ -144,119 +145,79 @@ const skillsObject = {
 		logos: './assets/logos/javascript.png',
 		details: ['Data Types', 'Functions', 'Loops', 'Dom', 'And More'],
 	},
-	parentContainer: getById('skills-modal'),
-	skillsParentToggles: [mainNavToggles[2], mobileNavToggles[2]],
-	skillPopOverContainer: getById('skill-details-popover-container'),
-	skillsDetailsContainer: getById('skills-detail-container'),
-	popOverHeaderContainer: select('.skill-detail-header-container'),
-
-	classes: {
-		skillsWrapper: 'skills-wrapper',
-		skillSpan: 'skill-span',
-		skillButton: 'skill-button',
-	},
 };
 
-const skillsWrapperContainer = createElement('div');
-addClass(skillsWrapperContainer, skillsObject.classes.skillsWrapper);
-addClass(skillsWrapperContainer, 'container');
+const { html, css, github, js } = codeObj;
 
-const ToggleSkillsContainer = (obj) => {
-	const skillSpans = [];
-	const skillImgs = [];
-	const skillButtons = [];
+const toggleCodeModal = (toggles) => {
+	const codeModal = getById('code-modal');
+	const modalActive = 'modal-active';
+	const CodeModalExit = getById('code-modal-exit');
 
-	for (let toggler of obj.skillsParentToggles) {
+	const logoSpans = [];
+	const nameSpans = [];
+	const logoImgs = [];
+
+	for (let toggler of toggles) {
 		toggler.addEventListener(click, () => {
-			if (!obj.parentContainer.classList.contains(flexActive)) {
-				toggleClass(obj.parentContainer, flexActive);
+			if (!codeModal.classList.contains(modalActive)) {
+				toggleClass(codeModal, modalActive);
+				toggleClass(CodeModalExit, flexActive);
 
-				appendChild(obj.parentContainer, skillsWrapperContainer);
+				console.log(CodeModalExit);
 
+				//create code span wrapper
+				const codeSpanWrapper = createElement('div');
+				addClass(codeSpanWrapper, 'code-span-wrapper');
+				addClass(codeSpanWrapper, 'container');
+				appendChild(codeModal, codeSpanWrapper);
+
+				//create code (logos) spans, code name spans, img spans
 				for (let i = 0; i < 4; i++) {
-					const span = createElement('span');
-					const img = createElement('img');
-					const button = createElement('button');
-					skillSpans.push(span);
-					skillImgs.push(img);
-					skillButtons.push(button);
-				}
-				for (let elem of skillSpans) {
-					addClass(elem, obj.classes.skillSpan);
-					appendChild(skillsWrapperContainer, elem);
+					logoSpans.push(createElement('span'));
+					nameSpans.push(createElement('span'));
+					logoImgs.push(createElement('img'));
 				}
 
-				for (let elem of skillButtons) {
-					addClass(elem, obj.classes.skillButton);
-					textContent(elem, 'Details');
+				//Add Classes to Code and Name Spans
+				for (let elms of logoSpans) {
+					addClass(elms, 'code-span');
+					addClass(elms, 'container');
+					appendChild(codeSpanWrapper, elms);
 				}
 
-				const [htmlSpan, cssSpan, gitSpan, jsSpan] = skillSpans;
-				const [htmlImg, cssImg, gitImg, jsImg] = skillImgs;
-				const [htmlButton, cssButton, gitButton, jsButton] = skillButtons;
+				for (let elms of nameSpans) {
+					addClass(elms, 'code-name-span');
+					addClass(elms, 'container');
+				}
 
-				const { html, css, git, js, ...rest } = skillsObject;
+				//Destructor And Append Elements
+				const [htmlCodeSpan, cssCodeSpan, gitHubCodeSpan, jsCodeSpan] = logoSpans;
+				const [htmlNameSpan, cssNameSpan, gitHubNameSpan, jsNameSpan] = nameSpans;
+				const [htmlImg, cssImg, gitHubImg, jsImg] = logoImgs;
 
-				const skillPopOver = rest.skillPopOverContainer;
-
-				const togglePopOverContainer = (toggler, container, obj) => {
-					toggler.addEventListener(click, () => {
-						if (!container.classList.contains(flexActive)) {
-							toggleClass(container, flexActive);
-							toggleClass(skillModalExit, flexInactive);
-							textContent(rest.popOverHeaderContainer, obj.name);
-							const skillLi = selectAll('.skill-li');
-							textContent(skillLi[0], obj.details[0]);
-							textContent(skillLi[1], obj.details[1]);
-							textContent(skillLi[2], obj.details[2]);
-							textContent(skillLi[3], obj.details[3]);
-							textContent(skillLi[4], obj.details[4]);
-
-							const skillPopOverExit = getById('skill-pop-over-exit');
-							skillPopOverExit.addEventListener(click, () => {
-								if (container.classList.contains(flexActive)) {
-									toggleClass(container, flexActive);
-									toggleClass(skillModalExit, flexInactive);
-								}
-							});
-						}
-					});
-				};
-
-				togglePopOverContainer(htmlButton, skillPopOver, html);
-				togglePopOverContainer(cssButton, skillPopOver, css);
-				togglePopOverContainer(gitButton, skillPopOver, git);
-				togglePopOverContainer(jsButton, skillPopOver, js);
-
-				htmlImg.src = obj.html.logos;
-				cssImg.src = obj.css.logos;
-				gitImg.src = obj.git.logos;
-				jsImg.src = obj.js.logos;
-
-				appendChild(htmlSpan, htmlImg);
-				appendChild(cssSpan, cssImg);
-				appendChild(gitSpan, gitImg);
-				appendChild(jsSpan, jsImg);
-
-				appendChild(htmlSpan, htmlButton);
-				appendChild(cssSpan, cssButton);
-				appendChild(gitSpan, gitButton);
-				appendChild(jsSpan, jsButton);
+				//logoImages
+				htmlImg.src = html.logos;
+				cssImg.src = css.logos;
+				gitHubImg.src = github.logos;
+				jsImg.src = js.logos;
+				//logoNames
+				textContent(htmlNameSpan, html.name);
+				textContent(cssNameSpan, css.name);
+				textContent(gitHubNameSpan, github.name);
+				textContent(jsNameSpan, js.name);
+				//append Elms to Parent Containers
+				appendChild(htmlCodeSpan, htmlImg);
+				appendChild(htmlCodeSpan, htmlNameSpan);
+				appendChild(cssCodeSpan, cssImg);
+				appendChild(cssCodeSpan, cssNameSpan);
+				appendChild(gitHubCodeSpan, gitHubImg);
+				appendChild(gitHubCodeSpan, gitHubNameSpan);
+				appendChild(jsCodeSpan, jsImg);
+				appendChild(jsCodeSpan, jsNameSpan);
 			}
-			const skillModalExit = getById('skill-modal-exit');
-
-			skillModalExit.addEventListener(click, () => {
-				if (skillsObject.parentContainer.classList.contains(flexActive)) {
-					toggleClass(skillsObject.parentContainer, flexActive);
-					removeChild(skillsObject.parentContainer, skillsWrapperContainer);
-					for (let elem of skillSpans) {
-						removeChild(skillsWrapperContainer, elem);
-					}
-					skillSpans.length = [];
-				}
-			});
 		});
 	}
 };
 
-ToggleSkillsContainer(skillsObject);
+toggleCodeModal(codeModalToggles);
