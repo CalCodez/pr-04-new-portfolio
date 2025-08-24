@@ -83,17 +83,37 @@
 	justify-content: space-around;
 }
 
-.hero-socials-container span {
-	display: flex;
-	justify-content: center;
-	height: 90%;
+.social-link {
+	height: 80px;
 	width: 20%;
 	align-items: center;
+	position: relative;
 }
 
-.hero-socials-container > span > .fa-brands {
+.social-name-span {
+	position: absolute;
+	width: 100px;
+	height: 20px;
+	background: linear-gradient(
+		15deg,
+		var(--bg-color-main),
+		var(--contrast-dark),
+		var(--contrast-dark),
+		var(--accent)
+	);
 	color: var(--font-color-main);
-	font-size: 2.5rem;
+	top: 0;
+	border-radius: 8px;
+	border: 1px solid var(--accent);
+	transition: all ease-in 0.2s;
+	visibility: hidden;
+	padding: 3px;
+	flex-shrink: 0;
+}
+
+.social-icons {
+	color: var(--font-color-main);
+	font-size: 2rem;
 	padding: 5px;
 	border: 2px solid var(--contrast-dark);
 	border-radius: 50%;
@@ -101,14 +121,22 @@
 	text-align: center;
 	width: 40px;
 	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.hero-socials-container > span > .fa-brands:hover {
+.social-icons:hover {
 	transform: scale(1.2);
 	border: 1px solid var(--contrast-dark);
 	color: var(--accent);
 	border: 1px solid var(--accent);
 	cursor: pointer;
+}
+
+.social-link:hover .social-name-span {
+	visibility: visible;
+	top: -30px;
 }
 
 /* ++Home Profile Picture Container */

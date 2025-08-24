@@ -18,10 +18,19 @@
 	--js-glow: #ffc108;
 }
 
-li {
+li,
+a {
 	text-decoration: none;
 	list-style: none;
 	cursor: pointer;
+}
+
+a {
+	display: flex;
+	box-sizing: content-box;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 
 .container {
@@ -41,11 +50,11 @@ html {
 
 body {
 	display: flex;
-	max-width: 1366px;
+	max-width: 1400px;
 	background-color: var(--bg-color-main);
 	box-shadow: 1px 1px 5px 1px var(--contrast-light);
 	width: 100%;
-	height: 95lvh;
+	height: 95vh;
 	box-sizing: content-box;
 	position: relative;
 }
@@ -54,7 +63,7 @@ body {
 	height: 100%;
 	padding: 5px;
 	position: relative;
-	box-sizing: content-box;
+	box-sizing: border-box;
 }
 
 .parent-header-container {

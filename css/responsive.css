@@ -10,13 +10,6 @@
 		width: 100%;
 	}
 
-	.nav-parent-wrapper {
-		width: 100%;
-		flex-wrap: wrap;
-		height: auto;
-		overflow: scroll;
-	}
-
 	.nav-parent-wrapper > div {
 		width: 100%;
 		height: fit-content;
@@ -31,26 +24,18 @@
 		height: 300px;
 		width: 300px;
 	}
-
-}
-
-@media (max-width: 500px) {
-
-
-	.parent-wrapper {
-		height: auto;
-	}
 }
 
 @media (max-width: 467px) {
+	html,
 	body {
-		place-content: center;
 		padding: 0;
 	}
 
 	.home-parent-wrapper {
 		flex-direction: column-reverse;
-		height: auto;
+		height: 100%;
+		width: 100%;
 	}
 
 	.home-parent-wrapper > div {
@@ -69,46 +54,49 @@
 }
 
 @media (max-width: 320px) {
-	html,
-	body {
-		padding: 0;
-	}
-
 	.hero-intro-container > p:nth-child(1) {
-		font-size: 4rem;
+		font-size: 3.5rem;
 		width: 100%;
 		text-align: center;
 	}
 
 	.hero-intro-container > p:nth-child(2) {
-		font-size: 1.8rem;
+		font-size: 1.3rem;
 		text-align: center;
 	}
 
-	.hero-socials-container span {
-		display: flex;
+	.hero-socials-container {
+		width: 95%;
 		justify-content: center;
-		height: 70%;
-		width: 15%;
-		align-items: center;
 	}
 
-	.hero-socials-container > span > .fa-brands {
-		font-size: 1.7rem;
-		padding: 1px;
-		align-content: center;
+	.social-link {
+		width: 40px;
+		height: 40px;
+	}
+	.social-icons {
+		font-size: 1.6rem;
+		height: 30px;
+	}
+
+	.social-name-span {
+		width: 50px;
+		width: fit-content;
+	}
+
+	.social-link:hover .social-name-span {
+		top: -40px;
+		font-size: 1rem;
 	}
 
 	.profile-pic-wrapper {
-		height: 250px;
-		width: 250px;
+		height: 200px;
+		width: 200px;
 		margin-bottom: 0;
 	}
 
 	.brand-name {
 		font-size: 3rem;
 		margin-bottom: 0;
-	}
-
 	}
 }

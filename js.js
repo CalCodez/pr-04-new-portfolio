@@ -218,8 +218,6 @@ const toggleCodeModal = (toggles) => {
 
 				const closeCodeModalToggles = [codeModal, codeModalExit];
 
-				console.log(nameSpans);
-
 				const closeCodeModal = (arr) => {
 					for (let togglers of arr) {
 						togglers.addEventListener(click, () => {
