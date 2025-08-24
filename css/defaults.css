@@ -54,7 +54,7 @@ body {
 	background-color: var(--bg-color-main);
 	box-shadow: 1px 1px 5px 1px var(--contrast-light);
 	width: 100%;
-	height: 95vh;
+	height: 90vh;
 	box-sizing: content-box;
 	position: relative;
 }
