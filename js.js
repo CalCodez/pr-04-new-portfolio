@@ -199,11 +199,13 @@ const toggleCodeModal = (toggles) => {
 				cssImg.src = css.logos;
 				gitHubImg.src = github.logos;
 				jsImg.src = js.logos;
+
 				//logoNames
 				textContent(htmlNameSpan, html.name);
 				textContent(cssNameSpan, css.name);
 				textContent(gitHubNameSpan, github.name);
 				textContent(jsNameSpan, js.name);
+
 				//append Elms to Parent Containers
 				appendChild(htmlCodeSpan, htmlImg);
 				appendChild(htmlCodeSpan, htmlNameSpan);
@@ -215,6 +217,8 @@ const toggleCodeModal = (toggles) => {
 				appendChild(jsCodeSpan, jsNameSpan);
 
 				const closeCodeModalToggles = [codeModal, codeModalExit];
+
+				console.log(nameSpans);
 
 				const closeCodeModal = (arr) => {
 					for (let togglers of arr) {
@@ -241,7 +245,6 @@ const toggleCodeModal = (toggles) => {
 
 				window.addEventListener(keyup, () => {
 					if (event.key === 'Escape' && codeModal.classList.contains(modalActive)) {
-						console.log(codeModalExit);
 						toggleClass(codeModal, modalActive);
 						codeModalExit.style.display = 'none';
 
