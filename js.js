@@ -265,3 +265,6 @@ const toggleCodeModal = (toggles) => {
 };
 
 toggleCodeModal(codeModalToggles);
+
+const socialNameSpans = selectAll('.social-name-span');
+const tempLogo = getById('temp-logo');
