@@ -98,7 +98,13 @@ toggleParentContainers(toggleHome, homeParent, projectsParent);
 
 //Skills Modal Vars and Function
 
-const codeModalToggles = [mainNavToggles[2], mobileNavToggles[2]];
+const modalToggles = [
+	mainNavToggles[2],
+	mobileNavToggles[2],
+	mainNavToggles[4],
+	mobileNavToggles[4],
+];
+
 const codeObj = {
 	html: {
 		name: 'HTML',
@@ -125,38 +131,44 @@ const codeObj = {
 const { html, css, github, js } = codeObj;
 
 const toggleCodeModal = (toggles) => {
-	const codeModal = getById('code-modal');
+	const modalParentContainer = getById('modal-parent-container');
 	const modalActive = 'modal-active';
-	const codeModalExit = getById('code-modal-exit');
-	const codeSpanWrapper = createElement('div');
+	const modalParentExit = getById('modal-parent-exit');
+	const modalContentWrapper = createElement('div');
 	let logoSpans = [];
 	let nameSpans = [];
 	let logoImgs = [];
 
-	for (let toggler of toggles) {
-		toggler.addEventListener(click, () => {
-			if (!codeModal.classList.contains(modalActive)) {
-				toggleClass(codeModal, modalActive);
+	let contactLinks = [];
+	let contactSpans = [];
+	let contactIcons = [];
 
-				codeModalExit.style.display = 'block';
+	for (let toggler of modalToggles) {
+		toggler.addEventListener(click, () => {
+			if (
+				toggler.id === modalToggles[0].id ||
+				(toggler.id === modalToggles[1].id && !modalParentContainer.classList.contains(modalActive))
+			) {
+				toggleClass(modalParentContainer, modalActive);
+				modalParentExit.style.display = 'block';
 
 				//create code span wrapper
-				addClass(codeSpanWrapper, 'code-span-wrapper');
-				addClass(codeSpanWrapper, 'container');
-				appendChild(codeModal, codeSpanWrapper);
+				addClass(modalContentWrapper, 'modal-content-wrapper');
+				addClass(modalContentWrapper, 'container');
+				appendChild(modalParentContainer, modalContentWrapper);
 
 				//create code (logos) spans, code name spans, img spans
 				for (let i = 0; i < 4; i++) {
-					logoSpans.push(createElement('span'));
+					logoSpans.push(createElement('span')); //Spans = create 'a'
 					nameSpans.push(createElement('span'));
-					logoImgs.push(createElement('img'));
+					logoImgs.push(createElement('img')); // imgs = create 'i'
 				}
 
 				//Add Classes to Code and Name Spans
 				for (let elms of logoSpans) {
 					addClass(elms, 'code-span');
 					addClass(elms, 'container');
-					appendChild(codeSpanWrapper, elms);
+					appendChild(modalContentWrapper, elms);
 				}
 
 				for (let elms of nameSpans) {
@@ -191,20 +203,19 @@ const toggleCodeModal = (toggles) => {
 				appendChild(jsCodeSpan, jsImg);
 				appendChild(jsCodeSpan, jsNameSpan);
 
-				const closeCodeModalToggles = [codeModal, codeModalExit];
+				const closeCodeModalToggles = [modalParentContainer, modalParentExit];
 
 				const closeCodeModal = (arr) => {
 					for (let togglers of arr) {
 						togglers.addEventListener(click, () => {
-							if (codeModal.classList.contains(modalActive)) {
-								console.log(codeModalExit);
-								toggleClass(codeModal, modalActive);
-								codeModalExit.style.display = 'none';
+							if (modalParentContainer.classList.contains(modalActive)) {
+								toggleClass(modalParentContainer, modalActive);
+								modalParentExit.style.display = 'none';
 
-								removeChild(codeModal, codeSpanWrapper);
-								//remove appended spans from codespanwrapper
+								removeChild(modalParentContainer, modalContentWrapper);
+								//remove appended spans from modalContentWrapper
 								for (let elms of logoSpans) {
-									removeChild(codeSpanWrapper, elms);
+									removeChild(modalContentWrapper, elms);
 								}
 
 								//Clear arrays from generated elems
@@ -218,13 +229,13 @@ const toggleCodeModal = (toggles) => {
 
 				window.addEventListener(keyup, () => {
 					if (event.key === 'Escape' && codeModal.classList.contains(modalActive)) {
-						toggleClass(codeModal, modalActive);
+						toggleClass(modalParentContainer, modalActive);
 						codeModalExit.style.display = 'none';
 
-						removeChild(codeModal, codeSpanWrapper);
-						//remove appended spans from codespanwrapper
+						removeChild(modalParentContainer, modalContentWrapper);
+						//remove appended spans from modalContentWrapper
 						for (let elms of logoSpans) {
-							removeChild(codeSpanWrapper, elms);
+							removeChild(modalContentWrapper, elms);
 						}
 
 						//Clear arrays from generated elems
@@ -239,7 +250,7 @@ const toggleCodeModal = (toggles) => {
 	}
 };
 
-toggleCodeModal(codeModalToggles);
+toggleCodeModal(modalToggles);
 
 const socialNameSpans = selectAll('.social-name-span');
 const tempLogo = getById('temp-logo');
