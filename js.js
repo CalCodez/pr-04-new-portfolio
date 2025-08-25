@@ -131,36 +131,6 @@ const codeObj = {
 const { html, css, github, js } = codeObj;
 
 //CLose Modal Function
-const closeCodeModal = (
-	toggleArr,
-	exitElm,
-	parentContainer,
-	wrapperContainer,
-	spanLinkArr,
-	arr1,
-	arr2,
-	arr3
-) => {
-	for (let togglers of toggleArr) {
-		togglers.addEventListener(click, () => {
-			if (parentContainer.classList.contains('modal-active')) {
-				toggleClass(parentContainer, modalActive);
-				exitElm.style.display = 'none';
-
-				removeChild(parentContainer, wrapperContainer);
-				//remove appended spans from modalContentWrapper
-				for (let elms of spanLinkArr) {
-					removeChild(wrapperContainer, elms);
-				}
-
-				//Clear arrays from generated elems
-				arr1 = [];
-				arr2 = [];
-				arr3 = [];
-			}
-		});
-	}
-};
 
 const toggleCodeModal = (toggles) => {
 	const modalParentContainer = getById('modal-parent-container');
@@ -170,14 +140,9 @@ const toggleCodeModal = (toggles) => {
 	const closeCodeModalToggles = [modalParentContainer, modalParentExit];
 
 	//Code Toggle Arrays
-	let logoSpans = [];
+	let contentWrappers = [];
 	let nameSpans = [];
-	let logoImgs = [];
-
-	//Contact Toggle Arrays
-	let contactLinks = [];
-	let contactSpans = [];
-	let contactIcons = [];
+	let imgsIcons = [];
 
 	for (let toggler of toggles) {
 		toggler.addEventListener(click, () => {
@@ -195,13 +160,13 @@ const toggleCodeModal = (toggles) => {
 
 				//create code (logos) spans, code name spans, img spans
 				for (let i = 0; i < 4; i++) {
-					logoSpans.push(createElement('span')); //Spans = create 'a'
+					contentWrappers.push(createElement('span')); //Spans = create 'a'
 					nameSpans.push(createElement('span'));
-					logoImgs.push(createElement('img')); // imgs = create 'i'
+					imgsIcons.push(createElement('img')); // imgs = create 'i'
 				}
 
 				//Add Classes to Code and Name Spans
-				for (let elms of logoSpans) {
+				for (let elms of contentWrappers) {
 					addClass(elms, 'code-span');
 					addClass(elms, 'container');
 					appendChild(modalContentWrapper, elms);
@@ -213,9 +178,9 @@ const toggleCodeModal = (toggles) => {
 				}
 
 				//Destructor And Append Elements
-				const [htmlCodeSpan, cssCodeSpan, gitHubCodeSpan, jsCodeSpan] = logoSpans;
+				const [htmlCodeSpan, cssCodeSpan, gitHubCodeSpan, jsCodeSpan] = contentWrappers;
 				const [htmlNameSpan, cssNameSpan, gitHubNameSpan, jsNameSpan] = nameSpans;
-				const [htmlImg, cssImg, gitHubImg, jsImg] = logoImgs;
+				const [htmlImg, cssImg, gitHubImg, jsImg] = imgsIcons;
 
 				//logoImages
 				htmlImg.src = html.logos;
@@ -238,47 +203,6 @@ const toggleCodeModal = (toggles) => {
 				appendChild(gitHubCodeSpan, gitHubNameSpan);
 				appendChild(jsCodeSpan, jsImg);
 				appendChild(jsCodeSpan, jsNameSpan);
-
-				const closeCodeModal = (toggleArr) => {
-					for (let togglers of toggleArr) {
-						togglers.addEventListener(click, () => {
-							if (modalParentContainer.classList.contains(modalActive)) {
-								toggleClass(modalParentContainer, modalActive);
-								modalParentExit.style.display = 'none';
-
-								removeChild(modalParentContainer, modalContentWrapper);
-								//remove appended spans from modalContentWrapper
-								for (let elms of logoSpans) {
-									removeChild(modalContentWrapper, elms);
-								}
-
-								//Clear arrays from generated elems
-								logoSpans = [];
-								nameSpans = [];
-								logoImgs = [];
-							}
-						});
-					}
-				};
-
-				window.addEventListener(keyup, () => {
-					if (event.key === 'Escape' && codeModal.classList.contains(modalActive)) {
-						toggleClass(modalParentContainer, modalActive);
-						codeModalExit.style.display = 'none';
-
-						removeChild(modalParentContainer, modalContentWrapper);
-						//remove appended spans from modalContentWrapper
-						for (let elms of logoSpans) {
-							removeChild(modalContentWrapper, elms);
-						}
-
-						//Clear arrays from generated elems
-						logoSpans = [];
-						nameSpans = [];
-						logoImgs = [];
-					}
-				});
-				closeCodeModal(closeCodeModalToggles);
 			}
 			if (
 				toggler.id === modalToggles[2].id ||
@@ -288,44 +212,46 @@ const toggleCodeModal = (toggles) => {
 				modalParentExit.style.display = 'block';
 
 				appendChild(modalParentContainer, modalContentWrapper);
+				addClass(modalContentWrapper, 'modal-content-wrapper');
+				addClass(modalContentWrapper, 'container');
 
 				//create Contact link, icons, and spans
 				for (let i = 0; i < 4; i++) {
-					contactLinks.push(createElement('a'));
-					contactSpans.push(createElement('span'));
-					contactIcons.push(createElement('i'));
+					contentWrappers.push(createElement('a'));
+					nameSpans.push(createElement('span'));
+					imgsIcons.push(createElement('i'));
 				}
 
 				//Add Element Classes, Text, and href
 
-				for (let i of contactLinks) {
+				for (let i of contentWrappers) {
 					addClass(i, 'contact-link');
 					appendChild(modalContentWrapper, i);
 
 					i.target = '_blank';
 				}
-				const [fbLink, igLink, threadsLink, googleLink] = contactLinks;
+				const [fbLink, igLink, threadsLink, googleLink] = contentWrappers;
 
 				fbLink.href = '#';
 				igLink.href = '#';
 				threadsLink.href = '#';
 				googleLink.href = 'https://www.google.com';
 
-				for (let i of contactIcons) {
+				for (let i of imgsIcons) {
 					addClass(i, 'fa-brands');
 				}
-				const [fbIcon, igIcon, threadsIcon, googleIcon] = contactIcons;
+				const [fbIcon, igIcon, threadsIcon, googleIcon] = imgsIcons;
 
 				addClass(fbIcon, 'fa-facebook');
 				addClass(igIcon, 'fa-instagram');
 				addClass(threadsIcon, 'fa-threads');
 				addClass(googleIcon, 'fa-google');
 
-				for (let i of contactSpans) {
+				for (let i of nameSpans) {
 					addClass(i, 'contact-span');
 					addClass(i, 'container');
 				}
-				const [fbSpan, igSpan, threadsSpan, googleSpan] = contactSpans;
+				const [fbSpan, igSpan, threadsSpan, googleSpan] = nameSpans;
 
 				addClass(fbSpan, 'modal-fb-span');
 				addClass(igSpan, 'modal-ig-span');
@@ -348,6 +274,29 @@ const toggleCodeModal = (toggles) => {
 			}
 		});
 	}
+
+	const closeModalParent = (toggleArr) => {
+		for (let togglers of toggleArr) {
+			togglers.addEventListener(click, () => {
+				if (modalParentContainer.classList.contains(modalActive)) {
+					toggleClass(modalParentContainer, modalActive);
+					modalParentExit.style.display = 'none';
+
+					removeChild(modalParentContainer, modalContentWrapper);
+					//remove appended spans from modalContentWrapper
+					for (let elms of contentWrappers) {
+						removeChild(modalContentWrapper, elms);
+					}
+
+					//Clear arrays from generated elems
+					contentWrappers = [];
+					nameSpans = [];
+					imgsIcons = [];
+				}
+			});
+		}
+	};
+	closeModalParent(closeCodeModalToggles);
 };
 
 toggleCodeModal(modalToggles);
