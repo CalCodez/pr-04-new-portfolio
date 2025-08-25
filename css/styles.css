@@ -397,7 +397,6 @@
 .contact-icon-wrapper {
 	width: 250px;
 	height: 100%;
-	/*outline: var(--ol);*/
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
