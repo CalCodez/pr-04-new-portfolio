@@ -398,7 +398,7 @@
 .contact-icon-wrapper {
 	width: 250px;
 	height: 100%;
-	outline: var(--ol);
+	/*outline: var(--ol);*/
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
@@ -409,8 +409,22 @@
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
+	position: relative;
+	background-color: rgba(0, 0, 0, 0.5);
+}
 
-	background-color: rgba(0, 0, 0, 0.2);
+.contact-span {
+	width: 115px;
+	height: 40px;
+	position: absolute;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 8px;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--font-color-main);
+	visibility: hidden;
+	transition: all ease-in 0.2s;
+	border: 2px solid var(--contrast-light);
 }
 
 .contact-link:nth-child(1) {
@@ -418,12 +432,26 @@
 	color: #39569c;
 }
 
+.modal-fb-span {
+	background-color: rgba(57, 86, 156, 0.5);
+}
+
 .contact-link:nth-child(2) {
 	border-width: 2px;
 	border-style: solid;
 	color: var(--font-color-main);
-
+	border-color: #dd2a7b;
 	background: linear-gradient(50deg, #f9ce34, #dd2a7b, #6228d7);
+}
+
+.modal-ig-span {
+	background: linear-gradient(
+		50deg,
+		rgba(249, 206, 52, 0.7),
+		rgba(221, 42, 123, 0.9),
+		rgba(98, 40, 215, 0.8)
+	);
+	border: 2px solid #dd2a76;
 }
 
 .contact-link:nth-child(3) {
@@ -441,8 +469,18 @@
 	color: #4263f4;
 }
 
+.modal-google-span {
+	background: rgba(255, 255, 255, 0.8);
+	color: var(--accent);
+	border-color: var(--accent);
+}
+
 .contact-link > i {
 	font-size: 50px;
+}
+
+.contact-link:hover > .contact-span {
+	visibility: visible;
 }
 /* **Code Modal */
 

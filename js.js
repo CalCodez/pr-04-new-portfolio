@@ -130,20 +130,56 @@ const codeObj = {
 
 const { html, css, github, js } = codeObj;
 
+//CLose Modal Function
+const closeCodeModal = (
+	toggleArr,
+	exitElm,
+	parentContainer,
+	wrapperContainer,
+	spanLinkArr,
+	arr1,
+	arr2,
+	arr3
+) => {
+	for (let togglers of toggleArr) {
+		togglers.addEventListener(click, () => {
+			if (parentContainer.classList.contains('modal-active')) {
+				toggleClass(parentContainer, modalActive);
+				exitElm.style.display = 'none';
+
+				removeChild(parentContainer, wrapperContainer);
+				//remove appended spans from modalContentWrapper
+				for (let elms of spanLinkArr) {
+					removeChild(wrapperContainer, elms);
+				}
+
+				//Clear arrays from generated elems
+				arr1 = [];
+				arr2 = [];
+				arr3 = [];
+			}
+		});
+	}
+};
+
 const toggleCodeModal = (toggles) => {
 	const modalParentContainer = getById('modal-parent-container');
 	const modalActive = 'modal-active';
 	const modalParentExit = getById('modal-parent-exit');
 	const modalContentWrapper = createElement('div');
+	const closeCodeModalToggles = [modalParentContainer, modalParentExit];
+
+	//Code Toggle Arrays
 	let logoSpans = [];
 	let nameSpans = [];
 	let logoImgs = [];
 
+	//Contact Toggle Arrays
 	let contactLinks = [];
 	let contactSpans = [];
 	let contactIcons = [];
 
-	for (let toggler of modalToggles) {
+	for (let toggler of toggles) {
 		toggler.addEventListener(click, () => {
 			if (
 				toggler.id === modalToggles[0].id ||
@@ -203,10 +239,8 @@ const toggleCodeModal = (toggles) => {
 				appendChild(jsCodeSpan, jsImg);
 				appendChild(jsCodeSpan, jsNameSpan);
 
-				const closeCodeModalToggles = [modalParentContainer, modalParentExit];
-
-				const closeCodeModal = (arr) => {
-					for (let togglers of arr) {
+				const closeCodeModal = (toggleArr) => {
+					for (let togglers of toggleArr) {
 						togglers.addEventListener(click, () => {
 							if (modalParentContainer.classList.contains(modalActive)) {
 								toggleClass(modalParentContainer, modalActive);
@@ -246,11 +280,74 @@ const toggleCodeModal = (toggles) => {
 				});
 				closeCodeModal(closeCodeModalToggles);
 			}
+			if (
+				toggler.id === modalToggles[2].id ||
+				(toggler.id === modalToggles[3].id && !modalParentContainer.classList.contains(modalActive))
+			) {
+				toggleClass(modalParentContainer, modalActive);
+				modalParentExit.style.display = 'block';
+
+				appendChild(modalParentContainer, modalContentWrapper);
+
+				//create Contact link, icons, and spans
+				for (let i = 0; i < 4; i++) {
+					contactLinks.push(createElement('a'));
+					contactSpans.push(createElement('span'));
+					contactIcons.push(createElement('i'));
+				}
+
+				//Add Element Classes, Text, and href
+
+				for (let i of contactLinks) {
+					addClass(i, 'contact-link');
+					appendChild(modalContentWrapper, i);
+
+					i.target = '_blank';
+				}
+				const [fbLink, igLink, threadsLink, googleLink] = contactLinks;
+
+				fbLink.href = '#';
+				igLink.href = '#';
+				threadsLink.href = '#';
+				googleLink.href = 'https://www.google.com';
+
+				for (let i of contactIcons) {
+					addClass(i, 'fa-brands');
+				}
+				const [fbIcon, igIcon, threadsIcon, googleIcon] = contactIcons;
+
+				addClass(fbIcon, 'fa-facebook');
+				addClass(igIcon, 'fa-instagram');
+				addClass(threadsIcon, 'fa-threads');
+				addClass(googleIcon, 'fa-google');
+
+				for (let i of contactSpans) {
+					addClass(i, 'contact-span');
+					addClass(i, 'container');
+				}
+				const [fbSpan, igSpan, threadsSpan, googleSpan] = contactSpans;
+
+				addClass(fbSpan, 'modal-fb-span');
+				addClass(igSpan, 'modal-ig-span');
+				addClass(googleSpan, 'modal-google-span');
+				textContent(fbSpan, 'Facebook');
+				textContent(igSpan, 'Instagram');
+				textContent(threadsSpan, 'Threads');
+				textContent(googleSpan, 'Gmail');
+
+				//Append Elements
+
+				appendChild(fbLink, fbIcon);
+				appendChild(fbLink, fbSpan);
+				appendChild(igLink, igIcon);
+				appendChild(igLink, igSpan);
+				appendChild(threadsLink, threadsIcon);
+				appendChild(threadsLink, threadsSpan);
+				appendChild(googleLink, googleIcon);
+				appendChild(googleLink, googleSpan);
+			}
 		});
 	}
 };
 
 toggleCodeModal(modalToggles);
-
-const socialNameSpans = selectAll('.social-name-span');
-const tempLogo = getById('temp-logo');
