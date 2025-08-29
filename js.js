@@ -300,3 +300,101 @@ const toggleCodeModal = (toggles) => {
 };
 
 toggleCodeModal(modalToggles);
+
+//Project Card Obj
+
+const projectCards = {
+	calTube: {
+		title: 'CalTube',
+		img: '',
+		description: `Youtube-inspired clone featuring a collection of some of my favorite artists and their videos. This project showcases female, male, and group artist, along with artist pages that include a sub collection of videos from similar artists.`,
+		link: '#',
+	},
+
+	saas: {
+		title: 'SaaS',
+		img: '',
+		description: `A fully featured website landing page. This was my first project that tested all my skills in HTML and CSS. I learned to apply elements using advanced HTML, CSS positioning, forms, inputs, and sizing to achieve a professional looking landing page.`,
+		link: '#',
+	},
+	pokemon: {
+		title: 'Pokemon',
+		img: '',
+		description: `A Pokemon card collection project. This project allows users to collect and release Pokemon by adding and removing their favorite cards to a favorites section.`,
+		link: '#',
+	},
+
+	google: {
+		title: 'Google Search',
+		img: '',
+		description: `Google homepage clone built eyeing Google's homepage. This project involved replicating the layout, styling, to achieve accurate visual match. It's a straightforward demonstration of understanding basic HTML, CSS and link functionality.`,
+	},
+	dashboard: {
+		title: 'Dashboard',
+		img: '',
+		description: `A simple Javascript driven planner project. Create reminders, notes and the program will sort and store them in a parent category container.`,
+		link: '#',
+	},
+
+	loginForm: {
+		title: 'Login Form',
+		img: '',
+		description: `A simple Login form design inspired by "Rccodex" on Instagram`,
+		link: '#',
+	},
+
+	astroZone: {
+		title: 'AstroZone',
+		img: '',
+		description: `An astrology project based around the 12 signs in the zodiac. It featured a zodiac image gallery, a zodiac facts section, and a feature to view five famous people fro each zodiac sign.`,
+		link: '#',
+	},
+
+	solarGallery: {
+		title: 'Solar Gallery',
+		img: '',
+		description: `A Solar System gallery that includes an image and facts about the 8 official planets in out solar system, as well as our Sun, Moon, Pluto, and Galaxy. Web design inspired by UIUXMaesto from facebook.`,
+		link: '#',
+	},
+
+	logins: {
+		title: 'Logins',
+		img: '',
+		description: `A social media login page clone project. I cloned the login pages for various platforms, optimized for desktop, tablet, and mobile screens. The displayed login page adapts based on the device used, showcasing mobile responsive design.`,
+		link: '',
+	},
+
+	favz: {
+		title: 'My Favz',
+		img: '',
+		description: `A beginner project displaying a list of things I favor and don't favor, with each topic providing three key reasons for it's inclusion.`,
+		link: '#',
+	},
+
+	responsive: {
+		title: 'Responsive',
+		img: '',
+		description: `Simple mobile responsive landing page.`,
+		link: '#',
+	},
+
+	tribute: {
+		title: 'Aaliyah Tribute',
+		img: '',
+		description: `A tribute dedicated to the late Aaliyah. This project features a detailed biography, a curated collection of her music and videos, and a page highlighting the movies she starred in. Each section ays homage to her impactful career and lasting legacy in entertainment.`,
+		link: '#',
+	},
+
+	portfolio: {
+		title: 'Portfolio One',
+		img: '',
+		description: `My first portfolio.`,
+		link: '#',
+	},
+
+	loginProfile: {
+		title: 'Login_Profile',
+		img: '',
+		description: `A profile login project that checks for a valid username and password to access a user's profile. Correct credentials grant access to one of four Teenage Mutant Ninja Turtles `,
+	},
+};
