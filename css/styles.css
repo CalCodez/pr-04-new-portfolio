@@ -272,7 +272,7 @@
 	transition: height ease-in 0.5s;
 }
 
-.project-info-text {
+.project-description {
 	width: fit-content;
 	height: fit-content;
 	position: absolute;
@@ -299,7 +299,7 @@
 }
 
 .project-card:hover > .project-info-container > p,
-.project-card:hover > .project-button-container > .view-project-button {
+.project-card:hover > .project-button-container > .project-link {
 	visibility: visible;
 	transition: visibility ease-in-out 0.2s;
 	transition-delay: 0.4s;
@@ -309,7 +309,7 @@
 	height: 25%;
 }
 
-.view-project-button {
+.project-link {
 	box-sizing: content-box;
 	place-content: center;
 	text-align: center;
@@ -339,7 +339,7 @@
 	visibility: hidden;
 }
 
-.view-project-button:hover {
+.project-link:hover {
 	transform: scale(1.1);
 }
 

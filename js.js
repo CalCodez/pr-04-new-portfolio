@@ -306,95 +306,148 @@ toggleCodeModal(modalToggles);
 const projectCards = {
 	calTube: {
 		title: 'CalTube',
-		img: '',
+		img: './assets/projects_previews/calTube.png',
 		description: `Youtube-inspired clone featuring a collection of some of my favorite artists and their videos. This project showcases female, male, and group artist, along with artist pages that include a sub collection of videos from similar artists.`,
 		link: '#',
 	},
 
 	saas: {
 		title: 'SaaS',
-		img: '',
+		img: './assets/projects_previews/saas.png',
 		description: `A fully featured website landing page. This was my first project that tested all my skills in HTML and CSS. I learned to apply elements using advanced HTML, CSS positioning, forms, inputs, and sizing to achieve a professional looking landing page.`,
 		link: '#',
 	},
 	pokemon: {
 		title: 'Pokemon',
-		img: '',
+		img: './assets/projects_previews/pokemon.png',
 		description: `A Pokemon card collection project. This project allows users to collect and release Pokemon by adding and removing their favorite cards to a favorites section.`,
 		link: '#',
 	},
 
 	google: {
 		title: 'Google Search',
-		img: '',
+		img: './assets/projects_previews/google.png',
 		description: `Google homepage clone built eyeing Google's homepage. This project involved replicating the layout, styling, to achieve accurate visual match. It's a straightforward demonstration of understanding basic HTML, CSS and link functionality.`,
+		link: '#',
 	},
 	dashboard: {
 		title: 'Dashboard',
-		img: '',
+		img: './assets/projects_previews/dashboard.png',
 		description: `A simple Javascript driven planner project. Create reminders, notes and the program will sort and store them in a parent category container.`,
 		link: '#',
 	},
 
 	loginForm: {
 		title: 'Login Form',
-		img: '',
+		img: './assets/projects_previews/logIn_form.png',
 		description: `A simple Login form design inspired by "Rccodex" on Instagram`,
 		link: '#',
 	},
 
 	astroZone: {
 		title: 'AstroZone',
-		img: '',
+		img: './assets/projects_previews/astroZone.png',
 		description: `An astrology project based around the 12 signs in the zodiac. It featured a zodiac image gallery, a zodiac facts section, and a feature to view five famous people fro each zodiac sign.`,
 		link: '#',
 	},
 
 	solarGallery: {
 		title: 'Solar Gallery',
-		img: '',
+		img: './assets/projects_previews/solar_gallery.png',
 		description: `A Solar System gallery that includes an image and facts about the 8 official planets in out solar system, as well as our Sun, Moon, Pluto, and Galaxy. Web design inspired by UIUXMaesto from facebook.`,
 		link: '#',
 	},
 
 	logins: {
 		title: 'Logins',
-		img: '',
+		img: './assets/projects_previews/social_media.png',
 		description: `A social media login page clone project. I cloned the login pages for various platforms, optimized for desktop, tablet, and mobile screens. The displayed login page adapts based on the device used, showcasing mobile responsive design.`,
-		link: '',
+		link: '#',
 	},
 
 	favz: {
 		title: 'My Favz',
-		img: '',
+		img: './assets/projects_previews/My_favz.png',
 		description: `A beginner project displaying a list of things I favor and don't favor, with each topic providing three key reasons for it's inclusion.`,
 		link: '#',
 	},
 
 	responsive: {
 		title: 'Responsive',
-		img: '',
+		img: './assets/projects_previews/Responsive_website.png',
 		description: `Simple mobile responsive landing page.`,
 		link: '#',
 	},
 
 	tribute: {
 		title: 'Aaliyah Tribute',
-		img: '',
+		img: './assets/projects_previews/Aaliyah_tribute.png',
 		description: `A tribute dedicated to the late Aaliyah. This project features a detailed biography, a curated collection of her music and videos, and a page highlighting the movies she starred in. Each section ays homage to her impactful career and lasting legacy in entertainment.`,
 		link: '#',
 	},
 
 	portfolio: {
 		title: 'Portfolio One',
-		img: '',
+		img: './assets/projects_previews/portfolio_one.png',
+
 		description: `My first portfolio.`,
-		link: '#',
+		link: 'https://calcodez.vercel.app/',
 	},
 
 	loginProfile: {
 		title: 'Login_Profile',
-		img: '',
+		img: './assets/projects_previews/login_profile.png',
+
 		description: `A profile login project that checks for a valid username and password to access a user's profile. Correct credentials grant access to one of four Teenage Mutant Ninja Turtles `,
 	},
+	link: '#',
 };
+
+const {
+	calTube,
+	saas,
+	pokemon,
+	google,
+	dashboard,
+	loginForm,
+	astroZone,
+	solarGallery,
+	logins,
+	favz,
+	responsive,
+	tribute,
+	portfolio,
+	loginProfile,
+} = projectCards;
+
+//Project Card Vars and Functions
+const cardImg = selectAll('.project-img');
+const titles = selectAll('.project-title-span');
+const description = selectAll('.project-description');
+const links = selectAll('.project-link');
+
+const projectCardBuild = (img, title, description, link, obj) => {
+	img.src = obj.img;
+	textContent(title, obj.title);
+	textContent(description, obj.description);
+	link.href = obj.link;
+};
+
+projectCardBuild(cardImg[0], titles[0], description[0], links[0], calTube);
+projectCardBuild(cardImg[1], titles[1], description[1], links[1], saas);
+projectCardBuild(cardImg[2], titles[2], description[2], links[2], pokemon);
+projectCardBuild(cardImg[3], titles[3], description[3], links[3], google);
+projectCardBuild(cardImg[4], titles[4], description[4], links[4], dashboard);
+projectCardBuild(cardImg[5], titles[5], description[5], links[5], loginForm);
+projectCardBuild(cardImg[6], titles[6], description[6], links[6], astroZone);
+projectCardBuild(cardImg[7], titles[7], description[7], links[7], solarGallery);
+projectCardBuild(cardImg[8], titles[8], description[8], links[8], logins);
+projectCardBuild(cardImg[9], titles[9], description[9], links[9], favz);
+projectCardBuild(cardImg[10], titles[10], description[10], links[10], responsive);
+projectCardBuild(cardImg[11], titles[11], description[11], links[11], tribute);
+projectCardBuild(cardImg[12], titles[12], description[12], links[12], portfolio);
+projectCardBuild(cardImg[13], titles[13], description[13], links[13], loginProfile);
+
+for (let target of links) {
+	target.target = '_blank';
+}
