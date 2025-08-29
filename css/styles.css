@@ -193,8 +193,8 @@
 }
 
 .project-card {
-	width: 280px;
-	height: 380px;
+	width: 250px;
+	height: 350px;
 	border: 2px ridge var(--contrast-dark);
 	padding: 8px;
 	flex-direction: column;

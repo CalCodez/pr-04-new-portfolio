@@ -314,7 +314,7 @@ const projectCards = {
 	saas: {
 		title: 'SaaS',
 		img: './assets/projects_previews/saas.png',
-		description: `A fully featured website landing page. This was my first project that tested all my skills in HTML and CSS. I learned to apply elements using advanced HTML, CSS positioning, forms, inputs, and sizing to achieve a professional looking landing page.`,
+		description: `A fully featured website landing page. `,
 		link: '#',
 	},
 	pokemon: {
@@ -327,7 +327,7 @@ const projectCards = {
 	google: {
 		title: 'Google Search',
 		img: './assets/projects_previews/google.png',
-		description: `Google homepage clone built eyeing Google's homepage. This project involved replicating the layout, styling, to achieve accurate visual match. It's a straightforward demonstration of understanding basic HTML, CSS and link functionality.`,
+		description: `Google homepage clone built eyeing Google's homepage.`,
 		link: '#',
 	},
 	dashboard: {
