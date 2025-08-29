@@ -361,7 +361,7 @@ const projectCards = {
 	logins: {
 		title: 'Logins',
 		img: './assets/projects_previews/social_media.png',
-		description: `A social media login page clone project. I cloned the login pages for various platforms, optimized for desktop, tablet, and mobile screens. The displayed login page adapts based on the device used, showcasing mobile responsive design.`,
+		description: `Social Media Logins Page Clone. `,
 		link: '#',
 	},
 
@@ -382,7 +382,7 @@ const projectCards = {
 	tribute: {
 		title: 'Aaliyah Tribute',
 		img: './assets/projects_previews/Aaliyah_tribute.png',
-		description: `A tribute dedicated to the late Aaliyah. This project features a detailed biography, a curated collection of her music and videos, and a page highlighting the movies she starred in. Each section ays homage to her impactful career and lasting legacy in entertainment.`,
+		description: `A tribute dedicated to the late Aaliyah. `,
 		link: '#',
 	},
 
