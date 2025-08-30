@@ -209,7 +209,7 @@
 		var(--black),
 		var(--black),
 		var(--contrast-dark),
-		var(--accent)
+		rgba(193, 27, 23, 0.8)
 	);
 
 	border-radius: 5px;
@@ -227,8 +227,8 @@
 }
 
 .project-img-container > img {
-	width: 90%;
-	height: 90%;
+	width: 80%;
+	height: 80%;
 	object-fit: fill;
 }
 
@@ -242,6 +242,11 @@
 	border: 2px solid var(--black);
 	border-radius: 8px;
 	box-shadow: 1px 1px 8px 1px var(--contrast-dark);
+}
+
+.project-card:hover .project-title-span {
+	color: var(--accent);
+	box-shadow: 1px 1px 8px 1px var(--accent);
 }
 
 .project-badge-container {
@@ -283,7 +288,7 @@
 	width: 95%;
 	height: fit-content;
 	position: absolute;
-	font-size: 1.05rem;
+	font-size: 1rem;
 	text-align: center;
 	justify-content: center;
 	visibility: hidden;
@@ -302,7 +307,7 @@
 
 .project-card:hover > .project-info-container {
 	height: 50%;
-	opacity: 0.8;
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 .project-card:hover > .project-info-container > p,
