@@ -26,6 +26,32 @@
 	}
 }
 
+@media (max-width: 820px) and (min-width: 468px) {
+	.home-parent-wrapper {
+		flex-direction: column-reverse;
+	}
+
+	.home-parent-wrapper > div {
+		width: 80%;
+	}
+
+	.profile-pic-container {
+		padding-top: 50px;
+	}
+
+	.brand-name,
+	.welcome-text {
+		font-size: 4rem;
+	}
+
+	.about-info-container {
+		width: 650px;
+		height: 300px;
+		margin-top: 40px;
+		text-align: center;
+	}
+}
+
 @media (max-width: 467px) {
 	html,
 	body {
