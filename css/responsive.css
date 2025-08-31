@@ -32,6 +32,10 @@
 		padding: 0;
 	}
 
+	body {
+		height: auto;
+	}
+
 	.home-parent-wrapper {
 		flex-direction: column-reverse;
 		height: 100%;
@@ -51,9 +55,21 @@
 	.brand-name {
 		margin-bottom: -20px;
 	}
+
+	.about-img-container {
+		margin-bottom: 20px;
+	}
+
+	.about-info-container {
+		width: 100%;
+		text-align: center;
+	}
 }
 
 @media (max-width: 320px) {
+	body {
+		padding-bottom: 15px;
+	}
 	.hero-intro-container > p:nth-child(1) {
 		font-size: 3.5rem;
 		width: 100%;
@@ -98,5 +114,27 @@
 	.brand-name {
 		font-size: 3rem;
 		margin-bottom: 0;
+	}
+
+	.about-img-info-container {
+		margin-top: -40px;
+	}
+
+	.about-logo {
+		height: 90px;
+		place-content: flex-end;
+	}
+
+	.about-img-container {
+		width: 270px;
+		height: 270px;
+	}
+
+	.about-info-container {
+		padding-bottom: 20px;
+	}
+	.about-info-container > p {
+		font-size: 1rem;
+		line-height: 1.9;
 	}
 }
