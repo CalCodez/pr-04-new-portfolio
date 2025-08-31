@@ -240,7 +240,7 @@ const toggleCodeModal = (toggles) => {
 				fbLink.href = '#';
 				igLink.href = '#';
 				threadsLink.href = '#';
-				googleLink.href = 'https://www.google.com';
+				googleLink.href = '#contact-me';
 
 				for (let i of imgsIcons) {
 					addClass(i, 'fa-brands');
