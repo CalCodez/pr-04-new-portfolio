@@ -76,15 +76,20 @@ const aboutParent = getById('about-parent-wrapper');
 const projectsParent = getById('projects-parent-wrapper');
 const contactParent = getById('contact-parent-wrapper');
 
-const toggleParentContainers = (arr, targetContainer, cont2) => {
+const toggleParentContainers = (arr, targetContainer, cont2, cont3) => {
 	for (let toggler of arr) {
 		toggler.addEventListener(click, () => {
-			if (!targetContainer.classList.contains(flexActive) && cont2.classList.contains(flexActive)) {
-				toggleClass(cont2, flexActive);
+			if (
+				!targetContainer.classList.contains(flexActive) &&
+				!cont2.classList.contains(flexActive) &&
+				cont3.classList.contains(flexActive)
+			) {
+				toggleClass(cont3, flexActive);
 				toggleClass(targetContainer, flexActive);
 			} else if (
 				!targetContainer.classList.contains(flexActive) &&
-				!cont2.classList.contains(flexActive)
+				cont2.classList.contains(flexActive) &&
+				!cont3.classList.contains(flexActive)
 			) {
 				toggleClass(cont2, flexActive);
 				toggleClass(targetContainer, flexActive);
@@ -92,9 +97,9 @@ const toggleParentContainers = (arr, targetContainer, cont2) => {
 		});
 	}
 };
-
-toggleParentContainers(toggleProjects, projectsParent, homeParent);
-toggleParentContainers(toggleHome, homeParent, projectsParent);
+toggleParentContainers(toggleAbout, aboutParent, projectsParent, homeParent);
+toggleParentContainers(toggleProjects, projectsParent, homeParent, aboutParent);
+toggleParentContainers(toggleHome, homeParent, projectsParent, aboutParent);
 
 //Skills Modal Vars and Function
 
