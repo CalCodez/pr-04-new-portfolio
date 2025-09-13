@@ -215,7 +215,7 @@ const toggleCodeModal = (toggles) => {
 			) {
 				toggleClass(modalParentContainer, modalActive);
 				modalParentExit.style.display = 'block';
-
+				console.log();
 				appendChild(modalParentContainer, modalContentWrapper);
 				addClass(modalContentWrapper, 'modal-content-wrapper');
 				addClass(modalContentWrapper, 'container');
