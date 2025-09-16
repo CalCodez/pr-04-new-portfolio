@@ -404,8 +404,8 @@ const projectCards = {
 		img: './assets/projects_previews/login_profile.png',
 
 		description: `A profile login project that checks for a valid username and password to access a user's profile. Correct credentials grant access to one of four Teenage Mutant Ninja Turtles `,
+		link: 'https://loginprofiles.vercel.app/',
 	},
-	link: 'https://loginprofiles.vercel.app/',
 };
 
 const {
