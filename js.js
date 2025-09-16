@@ -365,7 +365,7 @@ const projectCards = {
 
 	logins: {
 		title: 'Logins',
-		img: './assets/projects_previews/social_Media.png',
+		img: './assets/projects_previews/Social_Media.png',
 		description: `Social Media Logins Page Clone. `,
 		link: '#',
 	},
