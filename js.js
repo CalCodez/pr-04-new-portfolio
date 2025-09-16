@@ -455,4 +455,5 @@ projectCardBuild(cardImg[13], titles[13], description[13], links[13], loginProfi
 
 for (let target of links) {
 	target.target = '_blank';
+	target.alt = 'CalCodez Project Image Previews';
 }
