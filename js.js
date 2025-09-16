@@ -313,54 +313,54 @@ const projectCards = {
 		title: 'CalTube',
 		img: './assets/projects_previews/calTube.png',
 		description: `Youtube-inspired clone featuring a collection of some of my favorite artists and their videos. This project showcases female, male, and group artist, along with artist pages that include a sub collection of videos from similar artists.`,
-		link: '#',
+		link: 'https://calcodez.vercel.app/projects/my_tube/Project_My_Tube/main.html',
 	},
 
 	saas: {
 		title: 'SaaS',
 		img: './assets/projects_previews/saas.png',
 		description: `A fully featured website landing page. `,
-		link: '#',
+		link: 'https://calcodez.vercel.app/projects/Saas_Project/index.html',
 	},
 	pokemon: {
 		title: 'Pokemon',
 		img: './assets/projects_previews/pokemon.png',
 		description: `A Pokemon card collection project. This project allows users to collect and release Pokemon by adding and removing their favorite cards to a favorites section.`,
-		link: '#',
+		link: 'https://calcodez.vercel.app/projects/Js_Project3_ApiWebsite/index.html',
 	},
 
 	google: {
 		title: 'Google Search',
 		img: './assets/projects_previews/google.png',
 		description: `Google homepage clone built eyeing Google's homepage.`,
-		link: '#',
+		link: 'https://calcodez.vercel.app/projects/Project_Google_Page/index.html',
 	},
 	dashboard: {
 		title: 'Dashboard',
 		img: './assets/projects_previews/dashboard.png',
 		description: `A simple Javascript driven planner project. Create reminders, notes and the program will sort and store them in a parent category container.`,
-		link: '#',
+		link: 'https://calcodez.vercel.app/projects/project_dashboard/indexPlanner.html',
 	},
 
 	loginForm: {
 		title: 'Login Form',
 		img: './assets/projects_previews/logIn_form.png',
 		description: `A simple Login form design inspired by "Rccodex" on Instagram`,
-		link: '#',
+		link: 'https://calcodez.vercel.app/projects/loginForm/login.html',
 	},
 
 	astroZone: {
 		title: 'AstroZone',
 		img: './assets/projects_previews/astroZone.png',
 		description: `An astrology project based around the 12 signs in the zodiac. It featured a zodiac image gallery, a zodiac facts section, and a feature to view five famous people fro each zodiac sign.`,
-		link: '#',
+		link: 'https://calcodez.vercel.app/projects/project_astrozone/index.html',
 	},
 
 	solarGallery: {
 		title: 'Solar Gallery',
 		img: './assets/projects_previews/solar_gallery.png',
 		description: `A Solar System gallery that includes an image and facts about the 8 official planets in out solar system, as well as our Sun, Moon, Pluto, and Galaxy. Web design inspired by UIUXMaesto from facebook.`,
-		link: '#',
+		link: 'https://calcodez.vercel.app/projects/project_solar_gallery/index.html',
 	},
 
 	logins: {
@@ -374,21 +374,21 @@ const projectCards = {
 		title: 'My Favz',
 		img: './assets/projects_previews/My_favz.png',
 		description: `A beginner project displaying a list of things I favor and don't favor, with each topic providing three key reasons for it's inclusion.`,
-		link: '#',
+		link: 'https://calcodez.vercel.app/projects/Project-My_Favz/index.html',
 	},
 
 	responsive: {
 		title: 'Responsive',
 		img: './assets/projects_previews/Responsive_website.png',
 		description: `Simple mobile responsive landing page.`,
-		link: '#',
+		link: 'https://calcodez.vercel.app/projects/Project_responsive_website/index.html',
 	},
 
 	tribute: {
 		title: 'Aaliyah Tribute',
 		img: './assets/projects_previews/Aaliyah_tribute.png',
 		description: `A tribute dedicated to the late Aaliyah. `,
-		link: '#',
+		link: 'https://calcodez.vercel.app/projects/Project_Aaliyah/index.html',
 	},
 
 	portfolio: {
@@ -405,7 +405,7 @@ const projectCards = {
 
 		description: `A profile login project that checks for a valid username and password to access a user's profile. Correct credentials grant access to one of four Teenage Mutant Ninja Turtles `,
 	},
-	link: '#',
+	link: 'https://loginprofiles.vercel.app/',
 };
 
 const {

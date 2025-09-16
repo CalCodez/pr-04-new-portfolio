@@ -58,6 +58,8 @@ body {
 	height: 90vh;
 	box-sizing: content-box;
 	position: relative;
+	outline: var(--ol);
+	margin-top: 30px;
 }
 .parent-wrapper {
 	width: 92%;
