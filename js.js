@@ -311,33 +311,33 @@ toggleCodeModal(modalToggles);
 const projectCards = {
 	calTube: {
 		title: 'CalTube',
-		img: './assets/projects_previews/calTube.png',
+		img: './assets/projects_previews/Caltube.png',
 		description: `Youtube-inspired clone featuring a collection of some of my favorite artists and their videos. This project showcases female, male, and group artist, along with artist pages that include a sub collection of videos from similar artists.`,
 		link: 'https://calcodez.vercel.app/projects/my_tube/Project_My_Tube/main.html',
 	},
 
 	saas: {
 		title: 'SaaS',
-		img: './assets/projects_previews/saas.png',
+		img: './assets/projects_previews/SaaS.png',
 		description: `A fully featured website landing page. `,
 		link: 'https://calcodez.vercel.app/projects/Saas_Project/index.html',
 	},
 	pokemon: {
 		title: 'Pokemon',
-		img: './assets/projects_previews/pokemon.png',
+		img: './assets/projects_previews/Pokemon.png',
 		description: `A Pokemon card collection project. This project allows users to collect and release Pokemon by adding and removing their favorite cards to a favorites section.`,
 		link: 'https://calcodez.vercel.app/projects/Js_Project3_ApiWebsite/index.html',
 	},
 
 	google: {
 		title: 'Google Search',
-		img: './assets/projects_previews/google.png',
+		img: './assets/projects_previews/Google.png',
 		description: `Google homepage clone built eyeing Google's homepage.`,
 		link: 'https://calcodez.vercel.app/projects/Project_Google_Page/index.html',
 	},
 	dashboard: {
 		title: 'Dashboard',
-		img: './assets/projects_previews/dashboard.png',
+		img: './assets/projects_previews/dashBoard.png',
 		description: `A simple Javascript driven planner project. Create reminders, notes and the program will sort and store them in a parent category container.`,
 		link: 'https://calcodez.vercel.app/projects/project_dashboard/indexPlanner.html',
 	},
@@ -365,14 +365,14 @@ const projectCards = {
 
 	logins: {
 		title: 'Logins',
-		img: './assets/projects_previews/social_media.png',
+		img: './assets/projects_previews/social_Media.png',
 		description: `Social Media Logins Page Clone. `,
 		link: '#',
 	},
 
 	favz: {
 		title: 'My Favz',
-		img: './assets/projects_previews/My_favz.png',
+		img: './assets/projects_previews/My_Favz.png',
 		description: `A beginner project displaying a list of things I favor and don't favor, with each topic providing three key reasons for it's inclusion.`,
 		link: 'https://calcodez.vercel.app/projects/Project-My_Favz/index.html',
 	},
